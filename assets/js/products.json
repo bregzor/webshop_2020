@@ -1,0 +1,92 @@
+    [
+      {
+      "name": "Product Name 1",
+      "desc": "Some info",
+      "artNr": "XX-XX",
+      "price": "1000",
+      "quantity": "1",
+      "imageSrc": "./assets/media/coppar.jpg",
+      "id": "1"
+    },
+    {
+      "name": "Product Name 2",
+      "desc": "Some info",
+      "artNr": "XX-XX",
+      "price": "1000",
+      "quantity": "1",
+      "imageSrc": "./assets/media/coppar.jpg",
+      "id": "2"
+    },
+    {
+      "name": "Product Name 3",
+      "desc": "Some info",
+      "artNr": "XX-XX",
+      "price": "1000",
+      "quantity": "1",
+      "imageSrc": "./assets/media/coppar.jpg",
+      "id": "3"
+    },
+    {
+      "name": "Product Name 4",
+      "desc": "Some info",
+      "artNr": "XX-XX",
+      "price": "1000",
+      "quantity": "1",
+      "imageSrc": "./assets/media/coppar.jpg",
+      "id": "4"
+    },
+    {
+      "name": "Product Name 5",
+      "desc": "Some info",
+      "artNr": "XX-XX",
+      "price": "1000",
+      "quantity": "1",
+      "imageSrc": "./assets/media/coppar.jpg",
+      "id": "5"
+    },
+    {
+      "name": "Product Name 6",
+      "desc": "Some info",
+      "artNr": "XX-XX",
+      "price": "1000",
+      "quantity": "1",
+      "imageSrc": "./assets/media/coppar.jpg",
+      "id": "6"
+    },
+    {
+      "name": "Product Name 7",
+      "desc": "Some info",
+      "artNr": "XX-XX",
+      "price": "1000",
+      "quantity": "1",
+      "imageSrc": "./assets/media/coppar.jpg",
+      "id": "7"
+    },
+    {
+      "name": "Product Name 8",
+      "desc": "Some info",
+      "artNr": "XX-XX",
+      "price": "1000",
+      "quantity": "1",
+      "imageSrc": "./assets/media/coppar.jpg",
+      "id": "8"
+    },
+    {
+      "name": "Product Name 9",
+      "desc": "Some info",
+      "artNr": "XX-XX",
+      "price": "1000",
+      "quantity": "1",
+      "imageSrc": "./assets/media/coppar.jpg",
+      "id": "9" 
+    },
+    {
+      "name": "Product Name 10",
+      "desc": "Some info",
+      "artNr": "XX-XX",
+      "price": "1000",
+      "quantity": "1",
+      "imageSrc": "./assets/media/coppar.jpg",
+      "id": "10"
+    }
+  ]
