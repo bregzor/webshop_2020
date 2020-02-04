@@ -55,6 +55,9 @@ function addItemToCart(id) {
 	console.log(cartItems);
 }
 
+function removeItemFromCart() {}
+
+
 function openCart() {
 	cart.style.width = "400px";
 }
