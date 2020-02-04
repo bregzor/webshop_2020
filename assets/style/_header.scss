@@ -1,33 +1,83 @@
 .page-header {
     background:white;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     height: 100vh;
-    nav {
-    ul {
-        display: flex;
-        min-width: 300px;
-        width: min-content;
-        list-style-type: none;
-        justify-content: space-evenly;
-        
-        @media (min-width:760px) {
-            min-width: 500px;
-        }
+    width: 100vw;
 
-        li {
-            display: inline;
-            padding-bottom: 5px;
-            border-bottom:3px solid transparent;
-            &:hover{
-             //   border-bottom:3px solid $section-subheader-color;
-            }
-            a {
-                color: white;
-                font-weight: 500;
-                text-decoration: none;
+    &__logo {
+        position: absolute;
+        left:50%;
+        transform: translateX(-50px);
+    }
+
+    &__top{
+        display: inherit;
+        flex-direction: row;
+        height: 80px;
+        align-items: center;
+        nav {
+            ul {
+                display: flex;
+                min-width: 300px;
+                width: min-content;
+                list-style-type: none;
+                justify-content: space-evenly;
+                
+                @media (min-width:760px) {
+                    min-width: 500px;
+                }
+        
+                li {
+                    display: inline;
+                    padding-bottom: 5px;
+                    border-bottom:3px solid transparent;
+                    &:last-child {
+                        position: absolute;
+                        right:50px;
+                    }
+                    &:hover{
+                     //   border-bottom:3px solid $section-subheader-color;
+                    }
+                    a {
+                        color: black;
+                        font-weight: 500;
+                        text-decoration: none;  
+                    }
+                
+                }
             }
         }
     }
-}
+    &__hero {
+        display: inherit;
+        width: 100%;
+        &-header {
+            color: white;
+            font-size: 28px;
+            position: absolute;
+            left:15%;
+            transform: translateX(15%);
+            top:300px;
+          
+        }
+    }
+
+    &__about {
+        display: flex;
+        flex-direction: column;
+        width: 60vw;
+        align-self:center;
+        padding-top:60px;
+        h3,p {
+            text-align:center;
+        }
+
+        p {
+            padding-top:20px;
+        }
+          
+    }
+
+
 }

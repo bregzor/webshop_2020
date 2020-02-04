@@ -14,14 +14,34 @@ html, body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  height: 100vh;
+  width: 100vw;
+}
+
+.page-header__logo {
+  position: absolute;
+  left: 50%;
+  -webkit-transform: translateX(-50px);
+          transform: translateX(-50px);
+}
+
+.page-header__top {
+  display: inherit;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-  height: 100vh;
+  height: 80px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
-.page-header nav ul {
+.page-header__top nav ul {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -36,21 +56,138 @@ html, body {
 }
 
 @media (min-width: 760px) {
-  .page-header nav ul {
+  .page-header__top nav ul {
     min-width: 500px;
   }
 }
 
-.page-header nav ul li {
+.page-header__top nav ul li {
   display: inline;
   padding-bottom: 5px;
   border-bottom: 3px solid transparent;
 }
 
-.page-header nav ul li a {
-  color: white;
+.page-header__top nav ul li:last-child {
+  position: absolute;
+  right: 50px;
+}
+
+.page-header__top nav ul li a {
+  color: black;
   font-weight: 500;
   text-decoration: none;
+}
+
+.page-header__hero {
+  display: inherit;
+  width: 100%;
+}
+
+.page-header__hero-header {
+  color: white;
+  font-size: 28px;
+  position: absolute;
+  left: 15%;
+  -webkit-transform: translateX(15%);
+          transform: translateX(15%);
+  top: 300px;
+}
+
+.page-header__about {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 60vw;
+  -ms-flex-item-align: center;
+      align-self: center;
+  padding-top: 60px;
+}
+
+.page-header__about h3, .page-header__about p {
+  text-align: center;
+}
+
+.page-header__about p {
+  padding-top: 20px;
+}
+
+.cart-menu {
+  height: 100%;
+  /* 100% Full-height */
+  width: 0;
+  /* 0 width - change this with JavaScript */
+  position: fixed;
+  /* Stay in place */
+  z-index: 1;
+  /* Stay on top */
+  top: 0;
+  /* Stay at the top */
+  right: 0;
+  background-color: white;
+  overflow-x: hidden;
+  /* Disable horizontal scroll */
+  padding-top: 60px;
+  /* Place content 60px from the top */
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  /* 0.5 second transition effect to slide in the sidenav */
+}
+
+.cart-menu .checkout {
+  width: 100%;
+  height: 50px;
+  outline: none;
+  color: white;
+  background: #2d2d2d;
+  border: 0;
+  position: absolute;
+  bottom: 0px;
+}
+
+/* The navigation menu links */
+.cart-menu a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+/* When you mouse over the navigation links, change their color */
+.cart-menu a:hover {
+  color: #f1f1f1;
+}
+
+/* Position and style the close button (top right corner) */
+.cart-menu .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+/* Style page content - use this if you want to push the page content to the right when you open the side navigation */
+#main {
+  -webkit-transition: margin-left .5s;
+  transition: margin-left .5s;
+  padding: 20px;
+}
+
+/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+  .sidenav {
+    padding-top: 15px;
+  }
+  .sidenav a {
+    font-size: 18px;
+  }
 }
 
 .main-container {
@@ -66,13 +203,32 @@ html, body {
           justify-content: center;
   background: #E6E6E6;
   width: 100vw;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .main-container h2 {
   text-align: center;
 }
 
-.products {
+.product-section {
+  display: inherit;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.product-section__header {
+  text-align: center;
+  padding: 50px;
+}
+
+.product-section .products {
   display: inherit;
   width: 70%;
   -ms-flex-wrap: wrap;
@@ -85,27 +241,27 @@ html, body {
           align-items: center;
 }
 
-.products__item {
+.product-section .products__item {
   display: inherit;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
   background: white;
-  width: 430px;
+  width: 400px;
   border-radius: 15px;
   padding: 20px;
   margin: 20px;
 }
 
-.products__item-img {
+.product-section .products__item-img {
   width: 230px;
   -ms-flex-item-align: center;
       -ms-grid-row-align: center;
       align-self: center;
 }
 
-.products__item-info {
+.product-section .products__item-info {
   display: inherit;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
@@ -113,7 +269,7 @@ html, body {
           flex-direction: column;
 }
 
-.products__item-info-bottom {
+.product-section .products__item-info-bottom {
   display: inherit;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
@@ -123,5 +279,22 @@ html, body {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+}
+
+.footer-area {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  height: 60px;
+  width: 100%;
+  background: black;
+  color: white;
+  padding-top: 10px;
 }
 /*# sourceMappingURL=style.css.map */
