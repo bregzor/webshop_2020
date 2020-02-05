@@ -1,9 +1,11 @@
 "use strict";
 
-const productSection = document.getElementById('products-container');
+const productSection = document.getElementById("products-container");
 const allItems = [];
 const cartItems = [];
 const cart = document.querySelector("#cart");
+const cartRemoveAll = document.getElementsByClassName("cart_remove_all")[0];
+cartRemoveAll.addEventListener("click", clearCart);
 loadProducts();
 
 function loadProducts() {
@@ -30,18 +32,18 @@ function loadProducts() {
 						<a href="#" class="btn" data-item="${item.id}">ADD</a>
 					</div>
 				</article>`;
-			//updating html content and pushing all items to new array
-			productSection.innerHTML = productHtml;
-			allItems.push(item);
+				//updating html content and pushing all items to new array
+				productSection.innerHTML = productHtml;
+				allItems.push(item);
 			});
 
 			//Adding listener to all add buttons,  sending in ID to determine which product through addtoCart()
-			const btns = document.querySelectorAll('.btn');
+			const btns = document.querySelectorAll(`.btn`);
 			for (let i = 0; i < btns.length; i++) {
 				const btn = btns[i];
-				btn.addEventListener('click', () => {
+				btn.addEventListener("click", () => {
 					const prodID = event.target.dataset.item;
-					addItemToCart(prodID)
+					addItemToCart(prodID);
 				});
 			}
 		})
@@ -54,103 +56,105 @@ function addItemToCart(id) {
 	//Next step is to append html in cart based on result below
 	cartItems.push(allItems.find(item => item.id === id));
 	//console.log(cartItems);
-  
+
 	//Find the correct item in the cartItem array
 	const clickedItem = allItems.find(item => item.id === id);
-  
+
 	const cartList = document.getElementsByClassName("cart_list_container")[0];
-  
+
 	//Create the structure of the cart HTML
 	const cartItemContainer = document.createElement("article");
 	cartItemContainer.classList.add("cart_product_container");
-  
+
 	const cartItemLine = document.createElement("hr");
 	cartItemLine.classList.add("cart-line");
-  
+
 	let itemHTML = `
-	  <img src="${clickedItem.imageSrc}" class="cart_product_image" width="100px" height="100px">
-	  <div class="cart_productinfo_container">
-	  <h5 class="cart_product_name">${clickedItem.name}</h5>
-	  <p class="cart_product_artNr">${clickedItem.artNr}</p>
-		  <input type="number" class="cart_product_quantity" min="1" value="${clickedItem.quantity}">
-	  <p class="cart_product_price">${clickedItem.price}</p>
-	  <button class="cart_product_remove">
-	</div>
-	  `;
-  
+	<img src="${clickedItem.imageSrc}" class="cart_product_image" width="100px" height="100px">
+	<div class="cart_productinfo_container">
+    <h5 class="cart_product_name">${clickedItem.name}</h5>
+    <p class="cart_product_artNr">${clickedItem.artNr}</p>
+		<input type="number" class="cart_product_quantity" min="1" value="${clickedItem.quantity}">
+    <p class="cart_product_price">${clickedItem.price}</p>
+    <button class="cart_product_remove">
+  </div>
+	`;
+
 	//Inserting the cart HTML into the cart
 	cartItemContainer.innerHTML = itemHTML;
 	cartList.appendChild(cartItemContainer);
 	cartList.appendChild(cartItemLine);
-  
+
 	//Add event listener to the remove button for each item placed in cart.
 	cartItemContainer
-	  .getElementsByClassName("cart_product_remove")[0]
-	  .addEventListener("click", removeItemFromCart);
-  }
-  
+		.getElementsByClassName("cart_product_remove")[0]
+		.addEventListener("click", removeItemFromCart);
+}
+
 function removeItemFromCart(event) {
 	const remove = event.target;
-  
+
+	const artNr = remove.parentElement.children[1];
+	console.log(artNr);
+
+
+	const productPosition = cartItems.indexOf(find(item => item.artNr === artNr));
+	console.log(productPosition);
+
 	//Removes the product and the product separator line from the HTML
 	remove.parentElement.parentElement.nextSibling.remove();
 	remove.parentElement.parentElement.remove();
+}
 
-	//Removes selected item from cart array
+function clearCart() {
+	//Select the container for the cart products and removes all children
+	const cartList = document.getElementsByClassName("cart_list_container")[0];
+	while (cartList.firstChild) {
+		cartList.firstChild.remove();
+	}
+}
 
-  }
-  
-  const cartRemoveAll = document.getElementsByClassName("cart_remove_all")[0];
-  cartRemoveAll.addEventListener("click", clearCart);
-  
-  function clearCart(event) {
-	const clearAll = event.target;
-  }
+	//Add item to local storage 
+	function checkOutAddItemtoStorage(itemsArr) {
+		//Each item in arr
+		let count = 0;
+		itemsArr.forEach(item => {
+			//making object to string (for localstorage to read)
+			const item_serialized = JSON.stringify(item);
+			//adding to storage
+			localStorage.setItem(`item_${count++}`, item_serialized);
+		});
 
-  function openCart() {
-	cart.style.width = "400px";
-  }
-  
-  function closeCart() {
-	cart.style.width = "0";
-  }
+		console.log(localStorage);
 
+		getItemsFromStorage();
+	}
 
+	//Loop through localstorage and gets each item as js object
+	//For each iteration should add html content to page
+	function getItemsFromStorage() {
 
+		for (let i = 0; i < localStorage.length; i++) {
+			const storageItem = JSON.parse(localStorage.getItem(`item_${i}`));
+			populateConfirmedItem(storageItem);
+		}
+		//populateConfirmedItems(storageItems);
+	}
 
+	function populateConfirmedItem(confirmedItem) {
+		const orderArea = document.querySelector("#confirmed-orders");
+		orderArea.innerHTML += JSON.stringify(confirmedItem);
+	}
 
-//Add item to local storage 
-function checkOutAddItemtoStorage(itemsArr) {
-	//Each item in arr
-	let count = 0;
-	itemsArr.forEach(item => {
-		//making object to string (for localstorage to read)
-		const item_serialized = JSON.stringify(item);
-		//adding to storage
-		localStorage.setItem(`item_${count++}`, item_serialized);
+	const chkOutBtn = document.querySelector('#checkOut');
+	chkOutBtn.addEventListener('click', () => {
+		checkOutAddItemtoStorage(cartItems);
 	});
 
-	getItemsFromStorage();
-}
+	function openCart() {
+		cart.style.width = "400px";
+	  }
 
-//Loop through localstorage and gets each item as js object
-//For each iteration should add html content to page
-function getItemsFromStorage() {
-
-	for (let i = 0; i < localStorage.length; i++) {
-		const storageItem = JSON.parse(localStorage.getItem(`item_${i}`));
-		populateConfirmedItem(storageItem);
+	function closeCart() {
+		cart.style.width = "0";
 	}
-//	populateConfirmedItems(storageItems);
-}
-
-function populateConfirmedItem(confirmedItem) {
-	const orderArea = document.querySelector("#confirmed-orders");
-	orderArea.innerHTML += JSON.stringify(confirmedItem);
-}
-
-  const chkOutBtn = document.querySelector('#checkOut');
-  chkOutBtn.addEventListener('click',  () =>  {
-		checkOutAddItemtoStorage(cartItems);
-  });
-  
