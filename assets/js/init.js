@@ -18,20 +18,21 @@ function loadProducts() {
 			products.forEach(function (item) {
 				//increments html
 				productHtml += `
-			<article class="products__item">
-				<img class="products__item-img" src='${item.imageSrc}' width="230" alt=''>
-				<div class="products__item-info">
-					<h3>${item.name}</h3>
-					<p>${item.price}</p>
-				</div>
-				<div class="products__item-info-bottom">
-					<p>${item.artNr}</p>
-					<a href="#" class="btn" data-item="${item.id}">ADD</a>
-				</div>
-			</article>`;
-				//updating html content and pushing all items to new array
-				productSection.innerHTML = productHtml;
-				allItems.push(item);
+				<article class="products__item">
+					<img class="products__item-img" src='${item.imageSrc}' width="230" alt=''>
+					<div class="products__item-info">
+						<h3>${item.name}</h3>
+						<p>${item.price}</p>
+					</div>
+					<div class="products__item-info-bottom">
+			  <p>${item.artNr}</p>
+			  <input type="number" class="products-quantity-input" min="1" value="1">
+						<a href="#" class="btn" data-item="${item.id}">ADD</a>
+					</div>
+				</article>`;
+			//updating html content and pushing all items to new array
+			productSection.innerHTML = productHtml;
+			allItems.push(item);
 			});
 
 			//Adding listener to all add buttons,  sending in ID to determine which product through addtoCart()
@@ -52,16 +53,62 @@ function addItemToCart(id) {
 	//Pushing selected item to cartItem array (Fortsätt på detta David?)
 	//Next step is to append html in cart based on result below
 	cartItems.push(allItems.find(item => item.id === id));
-	console.log(cartItems);
-}
-
-function removeItemFromCart() {}
-
-
-function openCart() {
+	//console.log(cartItems);
+  
+	//Find the correct item in the cartItem array
+	const clickedItem = allItems.find(item => item.id === id);
+  
+	const cartList = document.getElementsByClassName("cart_list_container")[0];
+  
+	//Create the structure of the cart HTML
+	const cartItemContainer = document.createElement("article");
+	cartItemContainer.classList.add("cart_product_container");
+  
+	const cartItemLine = document.createElement("hr");
+	cartItemLine.classList.add("cart-line");
+  
+	let itemHTML = `
+	  <img src="${clickedItem.imageSrc}" class="cart_product_image" width="100px" height="100px">
+	  <div class="cart_productinfo_container">
+	  <h5 class="cart_product_name">${clickedItem.name}</h5>
+	  <p class="cart_product_artNr">${clickedItem.artNr}</p>
+		  <input type="number" class="cart_product_quantity" min="1" value="${clickedItem.quantity}">
+	  <p class="cart_product_price">${clickedItem.price}</p>
+	  <button class="cart_product_remove">
+	</div>
+	  `;
+  
+	//Inserting the cart HTML into the cart
+	cartItemContainer.innerHTML = itemHTML;
+	cartList.appendChild(cartItemContainer);
+	cartList.appendChild(cartItemLine);
+  
+	//Add event listener to the remove button for each item placed in cart.
+	cartItemContainer
+	  .getElementsByClassName("cart_product_remove")[0]
+	  .addEventListener("click", removeItemFromCart);
+  }
+  
+  function removeItemFromCart(event) {
+	const remove = event.target;
+  
+	//Removes the product and the product separator line from the HTML
+	remove.parentElement.parentElement.nextSibling.remove();
+	remove.parentElement.parentElement.remove();
+  }
+  
+  const cartRemoveAll = document.getElementsByClassName("cart_remove_all")[0];
+  cartRemoveAll.addEventListener("click", clearCart);
+  
+  function clearCart(event) {
+	const clearAll = event.target;
+  }
+  
+  function openCart() {
 	cart.style.width = "400px";
-}
-
-function closeCart() {
+  }
+  
+  function closeCart() {
 	cart.style.width = "0";
-}
+  }
+  
