@@ -13,7 +13,7 @@ function loadProducts() {
 		.then((data) => data.json())
 		//drawing products based on previous promise
 		.then((products) => {
-			let productHtml = "";
+			let productHtml = '';
 			//Submitting each article with data from js object
 			products.forEach(function (item) {
 				//increments html
@@ -36,10 +36,10 @@ function loadProducts() {
 			});
 
 			//Adding listener to all add buttons,  sending in ID to determine which product through addtoCart()
-			const btns = document.querySelectorAll(`.btn`);
+			const btns = document.querySelectorAll('.btn');
 			for (let i = 0; i < btns.length; i++) {
 				const btn = btns[i];
-				btn.addEventListener("click", () => {
+				btn.addEventListener('click', () => {
 					const prodID = event.target.dataset.item;
 					addItemToCart(prodID)
 				});
@@ -89,12 +89,15 @@ function addItemToCart(id) {
 	  .addEventListener("click", removeItemFromCart);
   }
   
-  function removeItemFromCart(event) {
+function removeItemFromCart(event) {
 	const remove = event.target;
   
 	//Removes the product and the product separator line from the HTML
 	remove.parentElement.parentElement.nextSibling.remove();
 	remove.parentElement.parentElement.remove();
+
+	//Removes selected item from cart array
+
   }
   
   const cartRemoveAll = document.getElementsByClassName("cart_remove_all")[0];
@@ -103,7 +106,7 @@ function addItemToCart(id) {
   function clearCart(event) {
 	const clearAll = event.target;
   }
-  
+
   function openCart() {
 	cart.style.width = "400px";
   }
@@ -111,4 +114,43 @@ function addItemToCart(id) {
   function closeCart() {
 	cart.style.width = "0";
   }
+
+
+
+
+
+//Add item to local storage 
+function checkOutAddItemtoStorage(itemsArr) {
+	//Each item in arr
+	let count = 0;
+	itemsArr.forEach(item => {
+		//making object to string (for localstorage to read)
+		const item_serialized = JSON.stringify(item);
+		//adding to storage
+		localStorage.setItem(`item_${count++}`, item_serialized);
+	});
+
+	getItemsFromStorage();
+}
+
+//Loop through localstorage and gets each item as js object
+//For each iteration should add html content to page
+function getItemsFromStorage() {
+
+	for (let i = 0; i < localStorage.length; i++) {
+		const storageItem = JSON.parse(localStorage.getItem(`item_${i}`));
+		populateConfirmedItem(storageItem);
+	}
+//	populateConfirmedItems(storageItems);
+}
+
+function populateConfirmedItem(confirmedItem) {
+	const orderArea = document.querySelector("#confirmed-orders");
+	orderArea.innerHTML += JSON.stringify(confirmedItem);
+}
+
+  const chkOutBtn = document.querySelector('#checkOut');
+  chkOutBtn.addEventListener('click',  () =>  {
+		checkOutAddItemtoStorage(cartItems);
+  });
   

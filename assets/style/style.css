@@ -156,6 +156,11 @@ html, body {
   border: 0;
   position: absolute;
   bottom: 0px;
+  cursor: pointer;
+}
+
+.cart-menu .checkout:hover {
+  background: #4e4e4e;
 }
 
 .cart-header-container {
