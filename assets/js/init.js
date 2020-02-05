@@ -55,7 +55,7 @@ function addItemToCart(id) {
 	//Pushing selected item to cartItem array (Fortsätt på detta David?)
 	//Next step is to append html in cart based on result below
 	cartItems.push(allItems.find(item => item.id === id));
-	//console.log(cartItems);
+	console.log(cartItems);
 
 	//Find the correct item in the cartItem array
 	const clickedItem = allItems.find(item => item.id === id);
@@ -94,12 +94,15 @@ function addItemToCart(id) {
 function removeItemFromCart(event) {
 	const remove = event.target;
 
-	const artNr = remove.parentElement.children[1];
-	console.log(artNr);
-
-
-	const productPosition = cartItems.indexOf(find(item => item.artNr === artNr));
-	console.log(productPosition);
+	const artNr = remove.parentElement.children[1].innerHTML;
+  console.log(artNr);
+  
+  const product = cartItems.find(item => item.artNr === artNr);
+  const productPosition = cartItems.indexOf(product);
+  console.log(product);
+  console.log(productPosition);
+  cartItems.splice(productPosition, 1);
+  console.log(cartItems);
 
 	//Removes the product and the product separator line from the HTML
 	remove.parentElement.parentElement.nextSibling.remove();

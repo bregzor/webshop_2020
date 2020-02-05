@@ -2,7 +2,7 @@
       {
       "name": "Product Name 1",
       "desc": "Some info",
-      "artNr": "XX-XX",
+      "artNr": "11-11",
       "price": "1000",
       "quantity": "1",
       "imageSrc": "./assets/media/coppar.jpg",
@@ -11,7 +11,7 @@
     {
       "name": "Product Name 2",
       "desc": "Some info",
-      "artNr": "XX-XX",
+      "artNr": "22-22",
       "price": "1000",
       "quantity": "1",
       "imageSrc": "./assets/media/coppar.jpg",
@@ -20,7 +20,7 @@
     {
       "name": "Product Name 3",
       "desc": "Some info",
-      "artNr": "XX-XX",
+      "artNr": "33-33",
       "price": "1000",
       "quantity": "1",
       "imageSrc": "./assets/media/coppar.jpg",
@@ -29,7 +29,7 @@
     {
       "name": "Product Name 4",
       "desc": "Some info",
-      "artNr": "XX-XX",
+      "artNr": "44-44",
       "price": "1000",
       "quantity": "1",
       "imageSrc": "./assets/media/coppar.jpg",
@@ -38,7 +38,7 @@
     {
       "name": "Product Name 5",
       "desc": "Some info",
-      "artNr": "XX-XX",
+      "artNr": "55-55",
       "price": "1000",
       "quantity": "1",
       "imageSrc": "./assets/media/coppar.jpg",
@@ -47,7 +47,7 @@
     {
       "name": "Product Name 6",
       "desc": "Some info",
-      "artNr": "XX-XX",
+      "artNr": "66-66",
       "price": "1000",
       "quantity": "1",
       "imageSrc": "./assets/media/coppar.jpg",
@@ -56,7 +56,7 @@
     {
       "name": "Product Name 7",
       "desc": "Some info",
-      "artNr": "XX-XX",
+      "artNr": "77-77",
       "price": "1000",
       "quantity": "1",
       "imageSrc": "./assets/media/coppar.jpg",
@@ -65,7 +65,7 @@
     {
       "name": "Product Name 8",
       "desc": "Some info",
-      "artNr": "XX-XX",
+      "artNr": "88-88",
       "price": "1000",
       "quantity": "1",
       "imageSrc": "./assets/media/coppar.jpg",
@@ -74,7 +74,7 @@
     {
       "name": "Product Name 9",
       "desc": "Some info",
-      "artNr": "XX-XX",
+      "artNr": "99-99",
       "price": "1000",
       "quantity": "1",
       "imageSrc": "./assets/media/coppar.jpg",
@@ -83,7 +83,7 @@
     {
       "name": "Product Name 10",
       "desc": "Some info",
-      "artNr": "XX-XX",
+      "artNr": "00-00",
       "price": "1000",
       "quantity": "1",
       "imageSrc": "./assets/media/coppar.jpg",
