@@ -6,9 +6,9 @@ const cartItems = [];
 const cart = document.querySelector("#cart");
 const cartRemoveAll = document.getElementsByClassName("cart_remove_all")[0];
 cartRemoveAll.addEventListener("click", clearCart);
-loadProducts();
 
-function loadProducts() {
+
+(function loadProducts() {
 	//get json from serv
 	fetch('./assets/js/products.json')
 		//converting to js object
@@ -48,15 +48,11 @@ function loadProducts() {
 			}
 		})
 		.catch((err) => console.log('Error in Fetch: ' + err));
-}
-
+})();
 
 function addItemToCart(id) {
 	//Pushing selected item to cartItem array (Fortsätt på detta David?)
-	//Next step is to append html in cart based on result below
 	cartItems.push(allItems.find(item => item.id === id));
-	//console.log(cartItems);
-
 	//Find the correct item in the cartItem array
 	const clickedItem = allItems.find(item => item.id === id);
 
@@ -94,12 +90,15 @@ function addItemToCart(id) {
 function removeItemFromCart(event) {
 	const remove = event.target;
 
-	const artNr = remove.parentElement.children[1];
+	const artNr = remove.parentElement.children[1].innerHTML;
 	console.log(artNr);
 
-
-	const productPosition = cartItems.indexOf(find(item => item.artNr === artNr));
-	console.log(productPosition);
+	const product = cartItems.find(item => item.artNr === artNr);
+	const productPosition = cartItems.indexOf(product);
+	//console.log(product);
+	//console.log(productPosition);
+	cartItems.splice(productPosition, 1);
+	//console.log(cartItems);
 
 	//Removes the product and the product separator line from the HTML
 	remove.parentElement.parentElement.nextSibling.remove();
@@ -114,47 +113,55 @@ function clearCart() {
 	}
 }
 
-	//Add item to local storage 
-	function checkOutAddItemtoStorage(itemsArr) {
-		//Each item in arr
-		let count = 0;
-		itemsArr.forEach(item => {
-			//making object to string (for localstorage to read)
-			const item_serialized = JSON.stringify(item);
-			//adding to storage
-			localStorage.setItem(`item_${count++}`, item_serialized);
-		});
-
-		console.log(localStorage);
-
-		getItemsFromStorage();
-	}
-
-	//Loop through localstorage and gets each item as js object
-	//For each iteration should add html content to page
-	function getItemsFromStorage() {
-
-		for (let i = 0; i < localStorage.length; i++) {
-			const storageItem = JSON.parse(localStorage.getItem(`item_${i}`));
-			populateConfirmedItem(storageItem);
-		}
-		//populateConfirmedItems(storageItems);
-	}
-
-	function populateConfirmedItem(confirmedItem) {
-		const orderArea = document.querySelector("#confirmed-orders");
-		orderArea.innerHTML += JSON.stringify(confirmedItem);
-	}
-
-	const chkOutBtn = document.querySelector('#checkOut');
-	chkOutBtn.addEventListener('click', () => {
-		checkOutAddItemtoStorage(cartItems);
+//Add item to local storage 
+function checkOutAddItemtoStorage(itemsArr) {
+	//Each item in arr
+	let count = 0;
+	itemsArr.forEach(item => {
+		//making object to string (for localstorage to read)
+		const item_serialized = JSON.stringify(item);
+		//adding to storage
+		localStorage.setItem(`item_${count++}`, item_serialized);
 	});
+}
 
-	function openCart() {
-		cart.style.width = "400px";
-	  }
-
-	function closeCart() {
-		cart.style.width = "0";
+//Loop through localstorage and gets each item as js object
+//For each iteration should add html content to page
+function getItemsFromStorage() {
+	for (let i = 0; i < localStorage.length; i++) {
+		const storageItem = JSON.parse(localStorage.getItem(`item_${i}`));
+		populateConfirmedItem(storageItem);
 	}
+}
+
+function populateConfirmedItem(confirmedItem) {
+	const orderArea = document.querySelector("#confirmed-orders");
+	orderArea.innerHTML += JSON.stringify(confirmedItem);
+}
+
+function calculateTotalCartSum(arr) {
+	let totalSum = 0;
+	arr.forEach(item => {
+		totalSum = totalSum + parseInt(item.price) * parseInt(item.quantity);
+	});
+	return totalSum;
+}
+
+function updateCartMenuCount() {
+
+}
+
+
+const chkOutBtn = document.querySelector('#checkOut');
+chkOutBtn.addEventListener('click', () => {
+	checkOutAddItemtoStorage(cartItems);
+	calculateTotalCartSum(cartItems);
+});
+
+function openCart() {
+	cart.style.width = "400px";
+}
+
+function closeCart() {
+	cart.style.width = "0";
+}
