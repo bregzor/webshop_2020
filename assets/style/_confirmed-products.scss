@@ -1,6 +1,6 @@
 .main-confirm-container {
     width:100vw;
-    height:calc(100vh - 160px);
+    min-height:calc(100vh - 160px);
     background:url('../media/hero.jpg');
     background-size: cover;
 }
@@ -10,6 +10,8 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    position: relative;
+    top:150px;
     h2 {
         text-align: center;
         position: relative;
@@ -23,27 +25,32 @@
         flex-direction: column;
         align-self: center;
         background: white;
-        border-right: 10px;
-        width: 60vw;
+        border-radius: 10px;
+        width: 40vw;
     }
 
     &__item {
         width:100%;
         display: grid;
         height:min-content;
-        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-columns: 0.5fr 1fr 1fr;
         border-bottom: 1px solid gray;
         &-image {
-          //  background:green;
+            display: flex;
+            justify-self: center;
+            padding: 20px;
             img {
                 width: 200px;
             }
         }
         &-info {
-         //   background:red;
+         align-self: center;
         }
         &-right {
-           // background:black;
+            align-self: center;
+            justify-self: flex-end;
+            position: relative;
+            left: -40px;
         }
     }
 }

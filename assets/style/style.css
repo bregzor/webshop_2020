@@ -11,7 +11,7 @@ html, body {
 
 .main-confirm-container {
   width: 100vw;
-  height: calc(100vh - 160px);
+  min-height: calc(100vh - 160px);
   background: url("../media/hero.jpg");
   background-size: cover;
 }
@@ -28,6 +28,8 @@ html, body {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  position: relative;
+  top: 150px;
 }
 
 .orders h2 {
@@ -50,8 +52,8 @@ html, body {
   -ms-flex-item-align: center;
       align-self: center;
   background: white;
-  border-right: 10px;
-  width: 60vw;
+  border-radius: 10px;
+  width: 40vw;
 }
 
 .orders__item {
@@ -61,13 +63,36 @@ html, body {
   height: -webkit-min-content;
   height: -moz-min-content;
   height: min-content;
-  -ms-grid-columns: 1fr 1fr 1fr;
-      grid-template-columns: 1fr 1fr 1fr;
+  -ms-grid-columns: 0.5fr 1fr 1fr;
+      grid-template-columns: 0.5fr 1fr 1fr;
   border-bottom: 1px solid gray;
+}
+
+.orders__item-image {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  justify-self: center;
+  padding: 20px;
 }
 
 .orders__item-image img {
   width: 200px;
+}
+
+.orders__item-info {
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+}
+
+.orders__item-right {
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  justify-self: flex-end;
+  position: relative;
+  left: -40px;
 }
 
 .page-header {
@@ -112,6 +137,7 @@ html, body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  z-index: 10;
 }
 
 .page-header__top nav ul {
@@ -458,6 +484,8 @@ html, body {
   border-radius: 15px;
   padding: 20px;
   margin: 20px;
+  -webkit-box-shadow: 2px 2px 5px #929292;
+          box-shadow: 2px 2px 5px #929292;
 }
 
 .product-section .products__item-img {
