@@ -3,23 +3,23 @@
 const productSection = document.getElementById("products-container");
 const allItems = [];
 const cartItems = [];
+let addCount = 1;
 const cart = document.querySelector("#cart");
 const cartRemoveAll = document.getElementsByClassName("cart_remove_all")[0];
 cartRemoveAll.addEventListener("click", clearCart);
-loadProducts();
 
-function loadProducts() {
-  //get json from serv
-  fetch("./assets/js/products.json")
-    //converting to js object
-    .then(data => data.json())
-    //drawing products based on previous promise
-    .then(products => {
-      let productHtml = "";
-      //Submitting each article with data from js object
-      products.forEach(function(item) {
-        //increments html
-        productHtml += `
+(function loadProducts() {
+	//get json from serv
+	fetch('./assets/js/products.json')
+		//converting to js object
+		.then((data) => data.json())
+		//drawing products based on previous promise
+		.then((products) => {
+			let productHtml = '';
+			//Submitting each article with data from js object
+			products.forEach(function (item) {
+				//increments html
+				productHtml += `
 				<article class="products__item">
 					<img class="products__item-img" src='${item.imageSrc}' width="230" alt=''>
 					<div class="products__item-info">
@@ -29,7 +29,7 @@ function loadProducts() {
 					<div class="products__item-info-bottom">
             <p>${item.artNr}</p>
             <input type="number" class="products-quantity-input" min="1" value="1">
-						<a href="#" class="btn" data-item="${item.id}">ADD</a>
+						<a href="javascript:void(0)" class="btn" data-item="${item.id}">ADD</a>
 					</div>
 				</article>`;
         //updating html content and pushing all items to new array
@@ -48,7 +48,7 @@ function loadProducts() {
       }
     })
     .catch(err => console.log("Error in Fetch: " + err));
-}
+})
 
 function addItemToCart(e, id) {
   //Pushing selected item to cartItem array (Fortsätt på detta David?)
@@ -96,6 +96,14 @@ function addItemToCart(e, id) {
   cartItemContainer
     .getElementsByClassName("cart_product_quantity")[0]
     .addEventListener("change", cartItemQuantityChange);
+	//Add event listener to the remove button for each item placed in cart.
+	cartItemContainer
+		.getElementsByClassName("cart_product_remove")[0]
+		.addEventListener("click", removeItemFromCart);
+
+	//Updating menu count
+	const cartLinkCount = document.getElementById("cart-link");
+	cartLinkCount.innerText = `CART(${addCount++})`;
 }
 
 function cartItemQuantityChange(event) {
@@ -144,36 +152,39 @@ function checkOutAddItemtoStorage(itemsArr) {
     //adding to storage
     localStorage.setItem(`item_${count++}`, item_serialized);
   });
-
-  console.log(localStorage);
-
-  getItemsFromStorage();
 }
 
-//Loop through localstorage and gets each item as js object
-//For each iteration should add html content to page
-function getItemsFromStorage() {
-  for (let i = 0; i < localStorage.length; i++) {
-    const storageItem = JSON.parse(localStorage.getItem(`item_${i}`));
-    populateConfirmedItem(storageItem);
-  }
-  //populateConfirmedItems(storageItems);
+//Add item to local storage 
+function checkOutAddItemtoStorage(itemsArr) {
+	//Each item in arr
+	let count = 0;
+	itemsArr.forEach(item => {
+		//making object to string (for localstorage to read)
+		const item_serialized = JSON.stringify(item);
+		//adding to storage
+		localStorage.setItem(`item_${count++}`, item_serialized);
+	});
 }
 
-function populateConfirmedItem(confirmedItem) {
-  const orderArea = document.querySelector("#confirmed-orders");
-  orderArea.innerHTML += JSON.stringify(confirmedItem);
+
+function calculateTotalCartSum(arr) {
+	let totalSum = 0;
+	//Adding value by using foreach, possible with reduce method aswell
+	arr.forEach(item => {totalSum = totalSum + parseInt(item.price) * parseInt(item.quantity);});
+	return totalSum;
 }
 
-const chkOutBtn = document.querySelector("#checkOut");
-chkOutBtn.addEventListener("click", () => {
-  checkOutAddItemtoStorage(cartItems);
+const chkOutBtn = document.querySelector('#checkOut');
+chkOutBtn.addEventListener('click', () => {
+	checkOutAddItemtoStorage(cartItems);
+	location.href = 'landing.html';
+	//calculateTotalCartSum(cartItems);
 });
 
 function openCart() {
-  cart.style.width = "400px";
+	cart.style.width = "400px";
 }
 
 function closeCart() {
-  cart.style.width = "0";
+	cart.style.width = "0";
 }
