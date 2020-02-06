@@ -21,7 +21,7 @@ let addCount = 1;
 				<article class="products__item">
 					<img class="products__item-img" src='${item.imageSrc}' width="230" alt=''>
 					<div class="products__item-info">
-						<h3>${item.name}</h3>
+						<h4>${item.name}</h4>
 						<p>${item.price}</p>
 					</div>
 					<div class="products__item-info-bottom">
