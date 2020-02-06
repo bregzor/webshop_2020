@@ -13,15 +13,14 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="./assets/style/style.css">
-    <script src="./assets/js/init.js" async defer></script>
 </head>
 
 <body>
-    <header class="page-header">
+    <header class="page-header page-header--small">
         <div class="page-header__top">
             <nav>
                 <ul>
-                    <li><a href="#">HOME</a></li>
+                    <li><a href="index.html">HOME</a></li>
                     <li><a href="#shop">SHOP</a></li>
                     <li><a href="#">CONTACT</a></li>
                     <li><a href="#" onclick="openCart()">CART</a></li>
@@ -32,7 +31,23 @@
         </div>
     </header>
     <main class="main-confirm-container">
-    <section id="confirm-orders">
+    <section id="confirm-orders" class="orders">
+        <h2>CONFIRM YOUR ORDERS</h2>
+        <div id="confirmed-orders" class="orders__wrapper">
+            <div class="orders__item">
+                <div class="orders__item-image">
+                    <img src="" alt="">
+                </div>
+                <div class="orders__item-info"">
+                    <h3></h3>
+                    <span></span>
+                </div>
+                <div class="orders__item-right">
+                    <span></span>
+                    <h4></h4>
+                </div>
+            </div>
+        </div>
     </section>
 
     </main>
@@ -55,7 +70,6 @@
         <button class="cart_remove_all">Clear cart</button>
         <button id="checkOut" class="checkout">Checkout</button>
     </div>
-  
+    <script src="./assets/js/initOrder.js" async defer></script>
 </body>
-
 </html>

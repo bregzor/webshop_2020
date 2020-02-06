@@ -2,8 +2,15 @@
     background:white;
     display: flex;
     flex-direction: column;
-    height: 100vh;
+    height: 100vh;  
     width: 100vw;
+
+    &--small {
+        height:80px;
+    }
+    &--full {
+        height: 100vh;  
+    }
 
     &__logo {
         position: absolute;
@@ -13,6 +20,10 @@
 
     &__top{
         display: inherit;
+        position: fixed;
+        top:0;
+        width: 100%;
+        background:white;
         flex-direction: row;
         height: 80px;
         align-items: center;

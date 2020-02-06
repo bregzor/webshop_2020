@@ -9,6 +9,67 @@ html, body {
   scroll-behavior: smooth;
 }
 
+.main-confirm-container {
+  width: 100vw;
+  height: calc(100vh - 160px);
+  background: url("../media/hero.jpg");
+  background-size: cover;
+}
+
+.orders {
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.orders h2 {
+  text-align: center;
+  position: relative;
+  top: -50px;
+  color: white;
+}
+
+.orders__wrapper {
+  height: auto;
+  min-height: 200px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-item-align: center;
+      align-self: center;
+  background: white;
+  border-right: 10px;
+  width: 60vw;
+}
+
+.orders__item {
+  width: 100%;
+  display: -ms-grid;
+  display: grid;
+  height: -webkit-min-content;
+  height: -moz-min-content;
+  height: min-content;
+  -ms-grid-columns: 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr;
+  border-bottom: 1px solid gray;
+}
+
+.orders__item-image img {
+  width: 200px;
+}
+
 .page-header {
   background: white;
   display: -webkit-box;
@@ -22,6 +83,14 @@ html, body {
   width: 100vw;
 }
 
+.page-header--small {
+  height: 80px;
+}
+
+.page-header--full {
+  height: 100vh;
+}
+
 .page-header__logo {
   position: absolute;
   left: 50%;
@@ -31,6 +100,10 @@ html, body {
 
 .page-header__top {
   display: inherit;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: white;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
@@ -308,7 +381,7 @@ html, body {
   -ms-flex-item-align: end;
       -ms-grid-row-align: end;
       align-self: end;
-  background-image: url("/assets/media/remove_button.png");
+  background-image: url("../media/remove_button.png");
   background-repeat: no-repeat;
   background-position: center;
   background-color: red;

@@ -3,9 +3,11 @@
 const productSection = document.getElementById("products-container");
 const allItems = [];
 const cartItems = [];
+let addCount = 1;
 const cart = document.querySelector("#cart");
 const cartRemoveAll = document.getElementsByClassName("cart_remove_all")[0];
 cartRemoveAll.addEventListener("click", clearCart);
+
 
 
 (function loadProducts() {
@@ -29,7 +31,7 @@ cartRemoveAll.addEventListener("click", clearCart);
 					<div class="products__item-info-bottom">
 			  <p>${item.artNr}</p>
 			  <input type="number" class="products-quantity-input" min="1" value="1">
-						<a href="#" class="btn" data-item="${item.id}">ADD</a>
+						<a href="javascript:void(0);" class="btn" data-item="${item.id}">ADD</a>
 					</div>
 				</article>`;
 				//updating html content and pushing all items to new array
@@ -85,6 +87,10 @@ function addItemToCart(id) {
 	cartItemContainer
 		.getElementsByClassName("cart_product_remove")[0]
 		.addEventListener("click", removeItemFromCart);
+
+	//Updating menu count
+	const cartLinkCount = document.getElementById("cart-link");
+	cartLinkCount.innerText = `CART(${addCount++})`;
 }
 
 function removeItemFromCart(event) {
@@ -125,37 +131,19 @@ function checkOutAddItemtoStorage(itemsArr) {
 	});
 }
 
-//Loop through localstorage and gets each item as js object
-//For each iteration should add html content to page
-function getItemsFromStorage() {
-	for (let i = 0; i < localStorage.length; i++) {
-		const storageItem = JSON.parse(localStorage.getItem(`item_${i}`));
-		populateConfirmedItem(storageItem);
-	}
-}
-
-function populateConfirmedItem(confirmedItem) {
-	const orderArea = document.querySelector("#confirmed-orders");
-	orderArea.innerHTML += JSON.stringify(confirmedItem);
-}
 
 function calculateTotalCartSum(arr) {
 	let totalSum = 0;
-	arr.forEach(item => {
-		totalSum = totalSum + parseInt(item.price) * parseInt(item.quantity);
-	});
+	//Adding value by using foreach, possible with reduce method aswell
+	arr.forEach(item => {totalSum = totalSum + parseInt(item.price) * parseInt(item.quantity);});
 	return totalSum;
 }
-
-function updateCartMenuCount() {
-
-}
-
 
 const chkOutBtn = document.querySelector('#checkOut');
 chkOutBtn.addEventListener('click', () => {
 	checkOutAddItemtoStorage(cartItems);
-	calculateTotalCartSum(cartItems);
+	location.href = 'landing.html';
+	//calculateTotalCartSum(cartItems);
 });
 
 function openCart() {
