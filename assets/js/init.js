@@ -48,7 +48,7 @@ cartRemoveAll.addEventListener("click", clearCart);
       }
     })
     .catch(err => console.log("Error in Fetch: " + err));
-})
+})();
 
 function addItemToCart(e, id) {
   //Pushing selected item to cartItem array (Fortsätt på detta David?)
@@ -114,6 +114,7 @@ function cartItemQuantityChange(event) {
   const productIndex = cartItems.indexOf(product);
 
   cartItems[productIndex].quantity = change.value;
+  document.querySelector('#checkOut').innerText = `Checkout Total: ${calculateTotalCartSum(cartItems)}`;
 }
 
 function removeItemFromCart(event) {
@@ -166,7 +167,6 @@ function checkOutAddItemtoStorage(itemsArr) {
 	});
 }
 
-
 function calculateTotalCartSum(arr) {
 	let totalSum = 0;
 	//Adding value by using foreach, possible with reduce method aswell
@@ -178,7 +178,6 @@ const chkOutBtn = document.querySelector('#checkOut');
 chkOutBtn.addEventListener('click', () => {
 	checkOutAddItemtoStorage(cartItems);
 	location.href = 'landing.html';
-	//calculateTotalCartSum(cartItems);
 });
 
 function openCart() {
