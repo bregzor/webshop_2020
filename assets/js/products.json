@@ -1,92 +1,92 @@
     [
       {
-      "name": "Product Name 1",
+      "name": "Reel - Copper Deluxe",
       "desc": "Some info",
       "artNr": "11-11",
-      "price": "1000",
+      "price": "599",
       "quantity": "1",
-      "imageSrc": "./assets/media/coppar.jpg",
+      "imageSrc": "./assets/media/flyreelz_copper.jpg",
       "id": "1"
     },
     {
-      "name": "Product Name 2",
+      "name": "Reel - Copper Deluxe",
       "desc": "Some info",
       "artNr": "22-22",
-      "price": "1000",
+      "price": "599",
       "quantity": "1",
-      "imageSrc": "./assets/media/coppar.jpg",
+      "imageSrc": "./assets/media/flyreelz_copper.jpg",
       "id": "2"
     },
     {
-      "name": "Product Name 3",
+      "name": "Reel - RedCopper Deluxe",
       "desc": "Some info",
       "artNr": "33-33",
-      "price": "1000",
+      "price": "999",
       "quantity": "1",
-      "imageSrc": "./assets/media/coppar.jpg",
+      "imageSrc": "./assets/media/galvan_redcopper.jpg",
       "id": "3"
     },
     {
-      "name": "Product Name 4",
+      "name": "Reel - Goldman Deluxe",
       "desc": "Some info",
       "artNr": "44-44",
-      "price": "1000",
+      "price": "1500",
       "quantity": "1",
-      "imageSrc": "./assets/media/coppar.jpg",
+      "imageSrc": "./assets/media/flyreelz_gold.jpg",
       "id": "4"
     },
     {
-      "name": "Product Name 5",
+      "name": "Reel - Goldman Deluxe",
       "desc": "Some info",
       "artNr": "55-55",
-      "price": "1000",
+      "price": "1500",
       "quantity": "1",
-      "imageSrc": "./assets/media/coppar.jpg",
+      "imageSrc": "./assets/media/flyreelz_gold.jpg",
       "id": "5"
     },
     {
-      "name": "Product Name 6",
+      "name": "Reel - Goldman Deluxe",
       "desc": "Some info",
       "artNr": "66-66",
-      "price": "1000",
+      "price": "1500",
       "quantity": "1",
-      "imageSrc": "./assets/media/coppar.jpg",
+      "imageSrc": "./assets/media/flyreelz_gold.jpg",
       "id": "6"
     },
     {
-      "name": "Product Name 7",
+      "name": "Reel - Silvershark Deluxe",
       "desc": "Some info",
       "artNr": "77-77",
       "price": "1000",
       "quantity": "1",
-      "imageSrc": "./assets/media/coppar.jpg",
+      "imageSrc": "./assets/media/flyreelz_silver.jpg",
       "id": "7"
     },
     {
-      "name": "Product Name 8",
+      "name": "Reel - Silvershark Deluxe",
       "desc": "Some info",
       "artNr": "88-88",
       "price": "1000",
       "quantity": "1",
-      "imageSrc": "./assets/media/coppar.jpg",
+      "imageSrc": "./assets/media/flyreelz_silver.jpg",
       "id": "8"
     },
     {
-      "name": "Product Name 9",
+      "name": "Reel - Silvershark Deluxe",
       "desc": "Some info",
       "artNr": "99-99",
       "price": "1000",
       "quantity": "1",
-      "imageSrc": "./assets/media/coppar.jpg",
+      "imageSrc": "./assets/media/flyreelz_silver.jpg",
       "id": "9" 
     },
     {
-      "name": "Product Name 10",
+      "name": "Reel - Silvershark Deluxe",
       "desc": "Some info",
       "artNr": "00-00",
       "price": "1000",
       "quantity": "1",
-      "imageSrc": "./assets/media/coppar.jpg",
+      "imageSrc": "./assets/media/flyreelz_silver.jpg",
       "id": "10"
     }
   ]

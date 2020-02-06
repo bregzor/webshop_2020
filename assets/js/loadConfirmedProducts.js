@@ -17,7 +17,7 @@ function populateConfirmedItem(confirmedItem) {
                     <img src="${confirmedItem.imageSrc}" alt="">
                 </div>
                 <div class="orders__item-info"">
-                    <h3>${confirmedItem.name}</h3>
+                    <h3 class="orders__item-info-header">${confirmedItem.name}</h3>
                     <span>${confirmedItem.artNr}</span>
                 </div>
                 <div class="orders__item-right">
@@ -25,5 +25,6 @@ function populateConfirmedItem(confirmedItem) {
                     <h4>${confirmedItem.price}</h4>
                 </div>
             </div>
-	`;
+    `;
+    
 };

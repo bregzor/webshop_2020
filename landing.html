@@ -31,11 +31,21 @@
         </div>
     </header>
     <main class="main-confirm-container">
-    <section id="confirm-orders" class="orders">
-        <h2>CONFIRM YOUR ORDERS</h2>
-        <div id="confirmed-orders" class="orders__wrapper">
-        </div>
-    </section>
+        <section id="confirm-orders" class="orders">
+            <h2>CONFIRM YOUR ORDERS</h2>
+            <div class="orders__wrapper">
+                <div id="confirmed-orders"></div>
+                <div class="orders__bottom">
+                    <div class="orders__bottom-sum">
+                        <span>Total: Sum</span>
+                    </div>
+                    <div class="orders__bottom-pay">
+                        <span>Proceed to payment</span>
+                    </div>
+                    <span></span>
+                </div>
+            </div>
+        </section>
 
     </main>
     <footer class="footer-area">
@@ -45,13 +55,14 @@
         </div>
         <div class="footer_area__logo">
             <h1>FlyReelz</h1>
-        </div>  
+        </div>
     </footer>
     <div id="cart" class="cart-menu">
         <a href="javascript:void(0)" class="closebtn" onclick="closeCart()">&times;</a>
         <div class="cart-header-container">
             <h4 class="cart-menu-header">CART</h4>
-            <hr class="cart-line"></hr>
+            <hr class="cart-line">
+            </hr>
         </div>
         <div class="cart_list_container"></div>
         <button class="cart_remove_all">Clear cart</button>
@@ -59,4 +70,5 @@
     </div>
     <script src="./assets/js/loadConfirmedProducts.js" async defer></script>
 </body>
+
 </html>

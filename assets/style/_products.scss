@@ -15,7 +15,8 @@
     align-items: center;
     &__header {
         text-align:center;
-        padding:50px;   
+        padding:50px;  
+        color:rgb(56, 55, 55); 
     }
     .products {
     display: inherit;
@@ -23,6 +24,13 @@
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
+
+    &::before {
+        content:'';
+        width: 100%;
+        margin-bottom: 40px;
+        border-bottom: 1px solid rgb(121, 118, 118);
+    }
     &__item {
         display: inherit;
         flex-direction: column;
@@ -32,22 +40,67 @@
         padding:20px;
         margin:20px;
         box-shadow: 2px 2px 5px rgb(146, 146, 146);
+        padding:30px;
 
+        
         &-img {
-            width: 230px;
+            width: 180px;
             align-self: center;
+            padding-bottom: 40px;
         }
 
         &-info {
             display: inherit;
             flex-direction: column;
+            padding-bottom: 40px;
+         
+           &-price {
+                font-family: $product-font;
+                color:black;
+                font-weight: bold;
+                font-size: 34px;
+            }
+
+            &::before {
+                content:'';
+                width: 100%;
+                border-bottom: 1px solid rgb(139, 139, 139);
+                position: relative;
+                top:-10px;
+            }
+            &::after {
+                content:'';
+                width: 100%;
+                border-bottom: 1px solid rgb(139, 139, 139);
+                position: relative;
+                top: 10px;
+            }
         }
         &-info-bottom {
             display: inherit;
             flex-direction: row;
             width: 100%;
             justify-content: space-between;
+            align-items: flex-end;
+            p {font-family: $product-font;
+                font-size: 14px;}
+            
         }
     }
 }
+}
+
+.btn {
+
+    content:url(../media/add-btn.png);
+    height:40px;
+    &:hover {
+        opacity: 0.8;
+    }
+}
+
+.products-quantity-input {
+    width: 40px;
+    outline: none;
+
 }

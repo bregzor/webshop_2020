@@ -22,10 +22,10 @@ let addCount = 1;
 					<img class="products__item-img" src='${item.imageSrc}' width="230" alt=''>
 					<div class="products__item-info">
 						<h4>${item.name}</h4>
-						<p>${item.price}</p>
+						<p class="products__item-info-price">${item.price} €</p>
 					</div>
 					<div class="products__item-info-bottom">
-            <p>${item.artNr}</p>
+            <p>ART-NR: ${item.artNr}</p>
             <input type="number" class="products-quantity-input" min="1" value="1">
 						<a href="javascript:void(0)" class="btn" data-item="${item.id}">ADD</a>
 					</div>
@@ -40,10 +40,11 @@ let addCount = 1;
       for (let i = 0; i < btns.length; i++) {
         const btn = btns[i];
         btn.addEventListener("click", e => {
-          const prodID = event.target.dataset.item;
+		  const prodID = event.target.dataset.item;
+		  console.log(event.target);
           addItemToCart(e, prodID);
         });
-      }
+      }	
     })
     .catch(err => console.log("Error in Fetch: " + err));
 })();
