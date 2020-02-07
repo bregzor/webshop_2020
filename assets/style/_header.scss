@@ -46,9 +46,23 @@
           display: inline;
           padding-bottom: 5px;
           border-bottom: 3px solid transparent;
+          /*This is the cart icon*/
+          &:nth-last-child(2) {
+            position: absolute;
+            right: 80px;
+            &:hover {
+              border-bottom: none;
+            }
+          }
+          /*This is the cart counter*/
           &:last-child {
             position: absolute;
+            width: 20px;
             right: 50px;
+            top: 32px;
+            &:hover {
+              border-bottom: none;
+            }
           }
           &:hover {
             border-bottom: 3px solid goldenrod;
@@ -109,6 +123,5 @@
 }
 
 #cart-count {
-  margin-left: 40px;
   font-size: 20px;
 }

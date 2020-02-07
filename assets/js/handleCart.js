@@ -21,6 +21,7 @@ function addItemToCart(e, id) {
 
     const cartItemContainer = document.createElement("article");
     cartItemContainer.classList.add("cart_product_container");
+    cartItemContainer.id = `cart_product_container_${clickedItem.artNr}`;
 
     let itemHTML = `
 	  <img src="${clickedItem.imageSrc}" class="cart_product_image" width="100px" height="100px">
@@ -50,6 +51,7 @@ function addItemToCart(e, id) {
 
     cartCount(cartItems);
     calculateTotalCartSum(cartItems);
+    animateAddProduct();
   }
 
   function cartItemQuantityChange(event) {
@@ -73,8 +75,9 @@ function addItemToCart(e, id) {
       cartItems.find(item => item.artNr === artNr)
     );
     cartItems.splice(productIndex, 1);
-    //Removes the product and the product separator line from the HTML
-    event.target.parentElement.parentElement.remove();
+
+    //animate removal of cart item and removes cart item HTML from DOM
+    animateRemoveFromCart(artNr);
 
     calculateTotalCartSum(cartItems);
     cartCount(cartItems);
@@ -82,11 +85,8 @@ function addItemToCart(e, id) {
 }
 
 function clearCart() {
-  //Select the container for the cart products and removes all children
-  const cartList = document.getElementsByClassName("cart_list_container")[0];
-  while (cartList.firstChild) {
-    cartList.firstChild.remove();
-  }
+  //Select all products in cart and removes them with an animation
+  animateClearCart();
 
   //Remove all items in cart array
   cartItems.splice(0, cartItems.length);
@@ -123,4 +123,45 @@ function openCart() {
 
 function closeCart() {
   cart.style.width = "0";
+}
+
+function animateAddProduct() {
+  $(function() {
+    $("#cart-link")
+      .css({ position: "relative" })
+      .animate(
+        {
+          width: "+=20",
+          height: "+=20px",
+          top: "-=10px",
+          right: "-=10px"
+        },
+        100
+      )
+      .animate(
+        {
+          width: "-=20",
+          height: "-=20px",
+          top: "+=10px",
+          right: "+=10px"
+        },
+        100
+      );
+  });
+}
+
+function animateRemoveFromCart(artNr) {
+  $(function() {
+    $(`#cart_product_container_${artNr}`).slideUp(200, function() {
+      $(this).remove();
+    });
+  });
+}
+
+function animateClearCart() {
+  $(function() {
+    $(`.cart_product_container`).slideUp(300, function() {
+      $(this).remove();
+    });
+  });
 }
