@@ -13,7 +13,7 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="./assets/style/style.css">
-
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <body>
     <header class="page-header">
         <div class="page-header__top">
@@ -22,7 +22,8 @@
                     <li><a href="#">HOME</a></li>
                     <li><a href="#shop">SHOP</a></li>
                     <li><a href="#foo">CONTACT</a></li>
-                    <li><a href="#" id="cart-link" onclick="openCart()">CART</a></li>
+                    <li><div href="#" id="cart-link" onclick="openCart()"></li>
+                    <li><div id="cart-count"></div></li>
                 </ul>
             </nav>
             <h1 class="page-header__logo">FlyReelz</h1>
@@ -60,7 +61,6 @@
         <a href="javascript:void(0)" class="closebtn" onclick="closeCart()">&times;</a>
         <div class="cart-header-container">
             <h4 class="cart-menu-header">CART</h4>
-            <hr class="cart-line"></hr>
         </div>
         <div class="cart_list_container"></div>
         <button class="cart_remove_all">Clear cart</button>

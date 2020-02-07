@@ -1,107 +1,151 @@
 .page-header {
-    background:white;
-    display: flex;
-    flex-direction: column;
-    height: 100vh;  
+  background: white;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100vw;
+
+  &--small {
+    height: 80px;
+  }
+
+  &--full {
+    height: 100vh;
+  }
+
+  &__logo {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50px);
+    font-family: "Anton", sans-serif;
+    color: rgb(54, 54, 54);
+  }
+
+  &__top {
+    display: inherit;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.9);
+    flex-direction: row;
+    height: 80px;
+    align-items: center;
+    z-index: 10;
+
+    nav {
+      ul {
+        display: flex;
+        min-width: 300px;
+        width: min-content;
+        list-style-type: none;
+        justify-content: space-evenly;
+
+        @media (min-width:760px) {
+          min-width: 500px;
+        }
+
+        li {
+          display: inline;
+          padding-bottom: 5px;
+          border-bottom: 3px solid transparent;
+
+          
+              /*This is the cart icon*/
+              &:nth-last-child(2) {
+                position: absolute;
+                right: 80px;
+
+                &:hover {
+                  border-bottom: none;
+                }
+              }
+
+              /*This is the cart counter*/
+              &:last-child {
+                position: absolute;
+                width: 20px;
+                right: 50px;
+                top: 32px;
+
+                &:hover {
+                  border-bottom: none;
+                }
+              }
+
+          // &:last-child {
+          //   position: absolute;
+          //   right: 50px;
+          // }
+
+          &:hover {
+            border-bottom: 3px solid goldenrod;
+          }
+
+          a {
+            font-family: 'Quicksand', sans-serif;
+            color: black;
+            font-weight: 500;
+            text-decoration: none;
+          }
+
+        }
+      }
+    }
+  }
+
+  &__hero {
+    display: inherit;
     width: 100vw;
 
-    &--small {
-        height:80px;
+    &-header {
+      color: white;
+      font-family: 'Poppins', sans-serif;
+      font-size: 36px;
+      position: absolute;
+      left: 15%;
+      transform: translateX(15%);
+      top: 250px;
+
+      @media (max-width:600px) {
+        left: 0;
+        width: 90%;
+      }
     }
-    &--full {
-        height: 100vh;  
+  }
+
+  &__about {
+    display: flex;
+    flex-direction: column;
+    width: 60vw;
+    align-self: center;
+    padding-top: 60px;
+
+    h3,
+    p {
+      text-align: center;
     }
 
-    &__logo {
-        position: absolute;
-        left:50%;
-        transform: translateX(-50px);
-        font-family: 'Anton', sans-serif;
-        color:rgb(54, 54, 54);
+    p {
+      padding-top: 20px;
     }
+  }
+}
 
-    &__top{
-        display: inherit;
-        position: fixed;
-        top:0;
-        width: 100%;
-        background:rgba(255,255,255,0.9);
-        flex-direction: row;
-        height: 80px;
-        align-items: center;
-        z-index: 10;
-        nav {
-            ul {
-                display: flex;
-                min-width: 300px;
-                width: min-content;
-                list-style-type: none;
-                justify-content: space-evenly;
-                
-                @media (min-width:760px) {
-                    min-width: 500px;
-                }
-        
-                li {
-                    display: inline;
-                    padding-bottom: 5px;
-                    border-bottom:3px solid transparent;
-                    &:last-child {
-                        position: absolute;
-                        right:50px;
-                    }
-                    &:hover{
-                     border-bottom:3px solid goldenrod;
-                    }
-                    a {
-                        font-family: 'Quicksand', sans-serif;
-                        color: black;
-                        font-weight: 500;
-                        text-decoration: none;  
-                    }
-                
-                }
-            }
-        }
-    }
-    &__hero {
-        display: inherit;
-        width: 100vw;
-        &-header {
-            color: white;
-            font-family: 'Poppins',sans-serif;
-            font-size: 36px;
-            position: absolute;
-            left:15%;
-            transform: translateX(15%);
-            top:250px;
-            @media (max-width:600px){
-                left: 0;
-                width: 90%;
-            }  
-          
-        }
-    }
-    img {
-        width: 100vw;
-    }
- 
+#cart-link {
+  background-image: url("../media/Cart.png");
+  width: 40px;
+  height: 40px;
+  justify-self: center;
+  align-self: end;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  background-size: 100%;
 
-    &__about {
-        display: flex;
-        flex-direction: column;
-        width: 60vw;
-        align-self:center;
-        padding-top:100px;
-        h3,p {
-            text-align:center;
-        }
+  &:hover {
+    cursor: pointer;
+  }
+}
 
-        p {
-            padding-top:20px;
-        }
-          
-    }
-
-
+#cart-count {
+  font-size: 20px;
 }

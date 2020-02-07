@@ -7,17 +7,17 @@ const cartItems = [];
 let addCount = 1;
 
 (function loadProducts() {
-	//get json from serv
-	fetch('./assets/js/products.json')
-		//converting to js object
-		.then((data) => data.json())
-		//drawing products based on previous promise
-		.then((products) => {
-			let productHtml = '';
-			//Submitting each article with data from js object
-			products.forEach(function (item) {
-				//increments html
-				productHtml += `
+  //get json from serv
+  fetch("./assets/js/products.json")
+    //converting to js object
+    .then(data => data.json())
+    //drawing products based on previous promise
+    .then(products => {
+      let productHtml = "";
+      //Submitting each article with data from js object
+      products.forEach(function(item) {
+        //increments html
+        productHtml += `
 				<article class="products__item">
 					<img class="products__item-img" src='${item.imageSrc}' width="230" alt=''>
 					<div class="products__item-info">
