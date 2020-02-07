@@ -52,6 +52,7 @@ function addItemToCart(e, id) {
     cartCount(cartItems);
     calculateTotalCartSum(cartItems);
     animateAddProduct();
+    removeButtonHover();
   }
 
   function cartItemQuantityChange(event) {
@@ -129,6 +130,7 @@ function animateAddProduct() {
   $(function() {
     $("#cart-link")
       .css({ position: "relative" })
+      .delay(1400)
       .animate(
         {
           width: "+=20",
@@ -163,5 +165,74 @@ function animateClearCart() {
     $(`.cart_product_container`).slideUp(300, function() {
       $(this).remove();
     });
+  });
+}
+
+function removeButtonHover() {
+  $(function() {
+    $(".cart_product_remove")
+      .css({ position: "relative" })
+      .hover(
+        function() {
+          $(this).css({
+            width: "+=5px",
+            height: "+=5px",
+            bottom: "-=5px"
+          });
+        },
+        function() {
+          $(this).css({
+            width: "-=5px",
+            height: "-=5px",
+            bottom: "+=5px"
+          });
+        }
+      );
+  });
+}
+
+function imgToCartAnimate() {
+  $(".btn").on("click", function() {
+    console.log("test");
+    let cart = $("#cart-link");
+    let imageToDrag = $(this)
+      .parent()
+      .parent()
+      .find("img")
+      .eq(0);
+    if (imageToDrag) {
+      let imgClone = imageToDrag
+        .clone()
+        .offset({
+          top: imageToDrag.offset().top,
+          left: imageToDrag.offset().left
+        })
+        .css({
+          opacity: "0,5",
+          position: "absolute",
+          height: "200px",
+          width: "170px",
+          "z-index": 11
+        })
+        .appendTo($("body"))
+        .animate(
+          {
+            top: cart.offset().top + 10,
+            left: cart.offset().left + 10,
+            width: 75,
+            height: 75
+          },
+          1000
+        );
+      imgClone.animate(
+        {
+          width: 0,
+          height: 0
+        },
+        function() {
+          $(this).detach();
+        }
+      );
+    }
   });
 }
