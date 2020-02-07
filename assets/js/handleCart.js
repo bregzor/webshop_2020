@@ -22,24 +22,21 @@ function addItemToCart(e, id) {
     const cartItemContainer = document.createElement("article");
     cartItemContainer.classList.add("cart_product_container");
 
-    const cartItemLine = document.createElement("hr");
-    cartItemLine.classList.add("cart-line");
-
     let itemHTML = `
 	  <img src="${clickedItem.imageSrc}" class="cart_product_image" width="100px" height="100px">
 	  <div class="cart_productinfo_container">
-	  <h5 class="cart_product_name">${clickedItem.name}</h5>
-	  <p class="cart_product_artNr">${clickedItem.artNr}</p>
-		  <input type="number" class="cart_product_quantity" min="1" value="${clickedItem.quantity}">
-	  <p class="cart_product_price">${clickedItem.price}</p>
-	  <div class="cart_product_remove">
-	</div>
+      <h5 class="cart_product_name">${clickedItem.name}</h5>
+      <p class="cart_product_artNr_text">ArtNr:&nbsp;</p>
+      <p class="cart_product_artNr">${clickedItem.artNr}</p>
+      <input type="number" class="cart_product_quantity" min="1" value="${clickedItem.quantity}">
+      <p class="cart_product_price">à&nbsp;&nbsp;&nbsp;$${clickedItem.price}</p>
+	    <div class="cart_product_remove">
+	  </div>
 	  `;
 
     //Inserting the cart HTML into the cart
     cartItemContainer.innerHTML = itemHTML;
     cartList.appendChild(cartItemContainer);
-    cartList.appendChild(cartItemLine);
 
     //Add event listener to the remove button for each item placed in cart.
     cartItemContainer
@@ -57,7 +54,7 @@ function addItemToCart(e, id) {
 
   function cartItemQuantityChange(event) {
     //Find the index of the item beeing changed
-    const artNr = event.target.parentElement.children[1].innerHTML;
+    const artNr = event.target.parentElement.children[2].innerHTML;
     const productIndex = cartItems.indexOf(
       cartItems.find(item => item.artNr === artNr)
     );
@@ -71,14 +68,12 @@ function addItemToCart(e, id) {
 
   function removeItemFromCart(event) {
     //Find the clicked item in cart array and remove it
-    const artNr = event.target.parentElement.children[1].innerHTML;
+    const artNr = event.target.parentElement.children[2].innerHTML;
     const productIndex = cartItems.indexOf(
       cartItems.find(item => item.artNr === artNr)
     );
     cartItems.splice(productIndex, 1);
-
     //Removes the product and the product separator line from the HTML
-    event.target.parentElement.parentElement.nextSibling.remove();
     event.target.parentElement.parentElement.remove();
 
     calculateTotalCartSum(cartItems);

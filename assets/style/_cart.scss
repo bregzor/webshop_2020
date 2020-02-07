@@ -119,6 +119,11 @@
   flex-direction: row;
   height: 100px;
   align-items: center;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.178);
+  padding: 60px 0 60px 0;
+  &:first-child {
+    border-top: 1px solid rgba(0, 0, 0, 0.178);
+  }
 }
 
 .cart_productinfo_container {
@@ -134,9 +139,16 @@
   font-size: 1.2em;
 }
 
+.cart_product_artNr_text {
+  grid-column-start: 1;
+  justify-self: end;
+  font-size: 1em;
+  align-self: start;
+}
+
 .cart_product_artNr {
-  grid-column: span 3;
-  justify-self: center;
+  grid-column: span 2;
+  justify-self: start;
   font-size: 1em;
   align-self: start;
 }
@@ -146,10 +158,11 @@
   height: 25px;
   justify-self: center;
   align-self: end;
+  text-align: center;
 }
 
 .cart_product_price {
-  justify-self: center;
+  justify-self: start;
   align-self: end;
 }
 

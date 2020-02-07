@@ -7,25 +7,25 @@ const cartItems = [];
 let addCount = 1;
 
 (function loadProducts() {
-	//get json from serv
-	fetch('./assets/js/products.json')
-		//converting to js object
-		.then((data) => data.json())
-		//drawing products based on previous promise
-		.then((products) => {
-			let productHtml = '';
-			//Submitting each article with data from js object
-			products.forEach(function (item) {
-				//increments html
-				productHtml += `
+  //get json from serv
+  fetch("./assets/js/products.json")
+    //converting to js object
+    .then(data => data.json())
+    //drawing products based on previous promise
+    .then(products => {
+      let productHtml = "";
+      //Submitting each article with data from js object
+      products.forEach(function(item) {
+        //increments html
+        productHtml += `
 				<article class="products__item">
 					<img class="products__item-img" src='${item.imageSrc}' width="230" alt=''>
 					<div class="products__item-info">
 						<h4>${item.name}</h4>
-						<p>${item.price}</p>
+						<p>$${item.price}</p>
 					</div>
 					<div class="products__item-info-bottom">
-            <p>${item.artNr}</p>
+            <p>ArtNr: ${item.artNr}</p>
             <input type="number" class="products-quantity-input" min="1" value="1">
 						<a href="javascript:void(0)" class="btn" data-item="${item.id}">ADD</a>
 					</div>

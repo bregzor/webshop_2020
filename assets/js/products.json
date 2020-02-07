@@ -1,92 +1,92 @@
-    [
-      {
-      "name": "Product Name 1",
-      "desc": "Some info",
-      "artNr": "11-11",
-      "price": "1000",
-      "quantity": "1",
-      "imageSrc": "./assets/media/coppar.jpg",
-      "id": "1"
-    },
-    {
-      "name": "Product Name 2",
-      "desc": "Some info",
-      "artNr": "22-22",
-      "price": "1000",
-      "quantity": "1",
-      "imageSrc": "./assets/media/coppar.jpg",
-      "id": "2"
-    },
-    {
-      "name": "Product Name 3",
-      "desc": "Some info",
-      "artNr": "33-33",
-      "price": "1000",
-      "quantity": "1",
-      "imageSrc": "./assets/media/coppar.jpg",
-      "id": "3"
-    },
-    {
-      "name": "Product Name 4",
-      "desc": "Some info",
-      "artNr": "44-44",
-      "price": "1000",
-      "quantity": "1",
-      "imageSrc": "./assets/media/coppar.jpg",
-      "id": "4"
-    },
-    {
-      "name": "Product Name 5",
-      "desc": "Some info",
-      "artNr": "55-55",
-      "price": "1000",
-      "quantity": "1",
-      "imageSrc": "./assets/media/coppar.jpg",
-      "id": "5"
-    },
-    {
-      "name": "Product Name 6",
-      "desc": "Some info",
-      "artNr": "66-66",
-      "price": "1000",
-      "quantity": "1",
-      "imageSrc": "./assets/media/coppar.jpg",
-      "id": "6"
-    },
-    {
-      "name": "Product Name 7",
-      "desc": "Some info",
-      "artNr": "77-77",
-      "price": "1000",
-      "quantity": "1",
-      "imageSrc": "./assets/media/coppar.jpg",
-      "id": "7"
-    },
-    {
-      "name": "Product Name 8",
-      "desc": "Some info",
-      "artNr": "88-88",
-      "price": "1000",
-      "quantity": "1",
-      "imageSrc": "./assets/media/coppar.jpg",
-      "id": "8"
-    },
-    {
-      "name": "Product Name 9",
-      "desc": "Some info",
-      "artNr": "99-99",
-      "price": "1000",
-      "quantity": "1",
-      "imageSrc": "./assets/media/coppar.jpg",
-      "id": "9" 
-    },
-    {
-      "name": "Product Name 10",
-      "desc": "Some info",
-      "artNr": "00-00",
-      "price": "1000",
-      "quantity": "1",
-      "imageSrc": "./assets/media/coppar.jpg",
-      "id": "10"
-    }
-  ]
+[
+  {
+    "name": "Product Name 1",
+    "desc": "Some info",
+    "artNr": "11-11",
+    "price": "99",
+    "quantity": "1",
+    "imageSrc": "./assets/media/coppar.jpg",
+    "id": "1"
+  },
+  {
+    "name": "Product Name 2",
+    "desc": "Some info",
+    "artNr": "22-22",
+    "price": "67",
+    "quantity": "1",
+    "imageSrc": "./assets/media/coppar.jpg",
+    "id": "2"
+  },
+  {
+    "name": "Product Name 3",
+    "desc": "Some info",
+    "artNr": "33-33",
+    "price": "120",
+    "quantity": "1",
+    "imageSrc": "./assets/media/coppar.jpg",
+    "id": "3"
+  },
+  {
+    "name": "Product Name 4",
+    "desc": "Some info",
+    "artNr": "44-44",
+    "price": "250",
+    "quantity": "1",
+    "imageSrc": "./assets/media/coppar.jpg",
+    "id": "4"
+  },
+  {
+    "name": "Product Name 5",
+    "desc": "Some info",
+    "artNr": "55-55",
+    "price": "109",
+    "quantity": "1",
+    "imageSrc": "./assets/media/coppar.jpg",
+    "id": "5"
+  },
+  {
+    "name": "Product Name 6",
+    "desc": "Some info",
+    "artNr": "66-66",
+    "price": "399",
+    "quantity": "1",
+    "imageSrc": "./assets/media/coppar.jpg",
+    "id": "6"
+  },
+  {
+    "name": "Product Name 7",
+    "desc": "Some info",
+    "artNr": "77-77",
+    "price": "249",
+    "quantity": "1",
+    "imageSrc": "./assets/media/coppar.jpg",
+    "id": "7"
+  },
+  {
+    "name": "Product Name 8",
+    "desc": "Some info",
+    "artNr": "88-88",
+    "price": "199",
+    "quantity": "1",
+    "imageSrc": "./assets/media/coppar.jpg",
+    "id": "8"
+  },
+  {
+    "name": "Product Name 9",
+    "desc": "Some info",
+    "artNr": "99-99",
+    "price": "420",
+    "quantity": "1",
+    "imageSrc": "./assets/media/coppar.jpg",
+    "id": "9"
+  },
+  {
+    "name": "Product Name 10",
+    "desc": "Some info",
+    "artNr": "00-00",
+    "price": "69",
+    "quantity": "1",
+    "imageSrc": "./assets/media/coppar.jpg",
+    "id": "10"
+  }
+]
