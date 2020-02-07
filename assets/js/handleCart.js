@@ -6,6 +6,7 @@ function addItemToCart(e, id) {
 	//Pushing selected item to cartItem array (Fortsätt på detta David?)
 	//Next step is to append html in cart based on result below
 	cartItems.push(allItems.find(item => item.id === id));
+	console.log(cartItems);
   
 	//Find the correct item in the cartItem array
 	const clickedItem = cartItems.find(item => item.id === id);
