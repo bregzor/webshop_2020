@@ -15,8 +15,11 @@
     align-items: center;
     &__header {
         text-align:center;
-        padding:50px;  
+        padding:80px;   
         color:rgb(56, 55, 55); 
+        h3 {
+            font-family: $product-font;
+        }
     }
     .products {
     display: inherit;
@@ -41,12 +44,19 @@
         margin:20px;
         box-shadow: 2px 2px 5px rgb(146, 146, 146);
         padding:30px;
-
+        transform: rotate3d(1, 1, 1, 0deg);
+        transition: 250ms ease-in-out;
+        &:hover {
+            transform: rotate3d(1, 1, 1, 1deg);
+            transition: 250ms ease-in-out;
+            cursor: pointer;
+        }
         
         &-img {
-            width: 180px;
+            width: 130px;
             align-self: center;
-            padding-bottom: 40px;
+            padding-top: 40px;
+            padding-bottom: 60px;
         }
 
         &-info {
@@ -82,8 +92,17 @@
             width: 100%;
             justify-content: space-between;
             align-items: flex-end;
-            p {font-family: $product-font;
-                font-size: 14px;}
+            label {
+                font-family: $product-font;
+                color:black;
+                position: relative;
+                left: 45px;
+            }
+            p {
+                font-family: $product-font;
+                color:$product-light-color;
+                font-size: 14px;
+            }
             
         }
     }
@@ -91,16 +110,20 @@
 }
 
 .btn {
-
     content:url(../media/add-btn.png);
-    height:40px;
+    height:30px;
     &:hover {
         opacity: 0.8;
     }
 }
 
 .products-quantity-input {
-    width: 40px;
-    outline: none;
-
+    width:30px;
+    &::before {
+        content: 'QT';
+        width: 5%;
+        font-family: $product-font;
+        color: $product-light-color;
+        position: relative;
+    }
 }

@@ -21,9 +21,9 @@
             <nav>
                 <ul>
                     <li><a href="index.html">HOME</a></li>
-                    <li><a href="#shop">SHOP</a></li>
+                    <!-- <li><a href="#shop">SHOP</a></li>
                     <li><a href="#">CONTACT</a></li>
-                    <li><a href="#" onclick="openCart()">CART</a></li>
+                    <li><a href="#" onclick="openCart()">CART</a></li> -->
                 </ul>
             </nav>
             <h1 class="page-header__logo">FlyReelz</h1>
@@ -37,7 +37,7 @@
                 <div id="confirmed-orders"></div>
                 <div class="orders__bottom">
                     <div class="orders__bottom-sum">
-                        <span>Total: Sum</span>
+                        <span class="orders__bottom-sum-text">Total: Sum</span>
                     </div>
                     <div class="orders__bottom-pay">
                         <span>Proceed to payment</span>
@@ -68,7 +68,7 @@
         <button class="cart_remove_all">Clear cart</button>
         <button id="checkOut" class="checkout">Checkout</button>
     </div>
-    <script src="./assets/js/loadConfirmedProducts.js" async defer></script>
+    <script src="./assets/js/initOrders.js" async defer></script>
 </body>
 
 </html>

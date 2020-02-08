@@ -15,18 +15,18 @@ let addCount = 1;
     .then(products => {
       let productHtml = "";
       //Submitting each article with data from js object
-      products.forEach(function(item) {
+      products.forEach(item => {
         //increments html
         productHtml += `
 				<article class="products__item">
 					<img class="products__item-img" src='${item.imageSrc}' width="230" alt=''>
 					<div class="products__item-info">
 						<h4>${item.name}</h4>
-						<p class="products__item-info-price">${item.price} €</p>
+						<p class="products__item-info-price">$${item.price}</p>
 					</div>
 					<div class="products__item-info-bottom">
 						<p>ART-NR: ${item.artNr}</p>
-						<input type="number" class="products-quantity-input" min="1" value="1">
+						<label>QT</label><input type="number" id="pr_input" class="products-quantity-input" min="1" value="1">
 						<a href="javascript:void(0)" class="btn" data-item="${item.id}">ADD</a>
 					</div>
 				</article>`;
@@ -42,7 +42,6 @@ let addCount = 1;
         const btn = btns[i];
         btn.addEventListener("click", e => {
           const prodID = event.target.dataset.item;
-          console.log(event.target);
           addItemToCart(e, prodID);
         });
       }

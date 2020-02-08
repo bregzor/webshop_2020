@@ -1,40 +1,45 @@
 const cartRemoveAll = document.getElementsByClassName("cart_remove_all")[0];
 cartRemoveAll.addEventListener("click", clearCart);
+let count = 0;
 
-function addItemToCart(e, id) {
-  //Check if the product is already in the shopping cart
-  if (cartItems.find(item => item.id === id)) {
-    alert("You already have this product in your shopping cart!");
-  } else {
-    //Pushing selected item to cartItem array
-    cartItems.push(allItems.find(item => item.id === id));
+//Populating cart from LS
+(function initCart() {
+	for (let i = 0; i < localStorage.length; i++) {
+    //Getting item from ls, with key(length of storage)
+    const item = JSON.parse(localStorage.getItem(localStorage.key(i)));
+    //Creating cartelement
+    createProductElement(item);
+    //Pushing to global cart array
+    cartItems.push(item);
+  }
+  //Updating cart info
+  cartCount(cartItems);
+	calculateTotalCartSum(cartItems);
+  })();
+  
+//creating product cart element
+function createProductElement(productData) {
+   //Create the structure of the cart HTML
+   const cartList = document.getElementsByClassName("cart_list_container")[0];
 
-    //Find the correct item in the cartItem array
-    const clickedItem = cartItems.find(item => item.id === id);
+   const cartItemContainer = document.createElement("article");
+   cartItemContainer.classList.add("cart_product_container");
+   cartItemContainer.id = `cart_product_container_${productData.artNr}`;
 
-    //Quantity now gets added to the cart array when product gets placed in cart
-    const quantity = e.target.previousSibling.previousSibling.value;
-    clickedItem.quantity = quantity;
-
-    //Create the structure of the cart HTML
-    const cartList = document.getElementsByClassName("cart_list_container")[0];
-
-    const cartItemContainer = document.createElement("article");
-    cartItemContainer.classList.add("cart_product_container");
-    cartItemContainer.id = `cart_product_container_${clickedItem.artNr}`;
-
-    let itemHTML = `
-	  <img src="${clickedItem.imageSrc}" class="cart_product_image" width="100px" height="100px">
-	  <div class="cart_productinfo_container">
-      <h5 class="cart_product_name">${clickedItem.name}</h5>
-      <p class="cart_product_artNr_text">ArtNr:&nbsp;</p>
-      <p class="cart_product_artNr">${clickedItem.artNr}</p>
-      <input type="number" class="cart_product_quantity" min="1" value="${clickedItem.quantity}">
-      <p class="cart_product_price">à&nbsp;&nbsp;&nbsp;$${clickedItem.price}</p>
-	    <div class="cart_product_remove">
-	  </div>
-	  `;
-
+   let itemHTML = `
+   <img src="${productData.imageSrc}" class="cart_product_image" width="80px" height="80px">
+   <div class="cart_productinfo_container">
+     <h5 class="cart_product_name">${productData.name}</h5>
+     <div class="cart_product_art-container">
+     <p class="cart_product_artNr_text">ART-NR:&nbsp;</p>
+     <p class="cart_product_artNr">${productData.artNr}</p>
+     </div>
+     <input type="number" class="cart_product_quantity" min="1" value="${productData.quantity}">
+     <p class="cart_product_price">à&nbsp;&nbsp;&nbsp;$${productData.price}</p>
+     <div data-id="${productData.id}" class="cart_product_remove">
+   </div>
+   `;
+   
     //Inserting the cart HTML into the cart
     cartItemContainer.innerHTML = itemHTML;
     cartList.appendChild(cartItemContainer);
@@ -51,13 +56,15 @@ function addItemToCart(e, id) {
 
     cartCount(cartItems);
     calculateTotalCartSum(cartItems);
+   //cartItems.push(item);
     animateAddProduct();
     removeButtonHover();
   }
 
+    
   function cartItemQuantityChange(event) {
     //Find the index of the item beeing changed
-    const artNr = event.target.parentElement.children[2].innerHTML;
+    const artNr = event.target.parentElement.children[1].children[1].innerHTML;
     const productIndex = cartItems.indexOf(
       cartItems.find(item => item.artNr === artNr)
     );
@@ -71,17 +78,44 @@ function addItemToCart(e, id) {
 
   function removeItemFromCart(event) {
     //Find the clicked item in cart array and remove it
-    const artNr = event.target.parentElement.children[2].innerHTML;
+    console.log(event.target.parentElement.children[1].children[1].innerHTML);
+    const artNr = event.target.parentElement.children[1].children[1].innerHTML;
+    
+    //const artNr = event.target.parentElement.children[2].innerHTML;
+    const id = event.target.dataset.id;
     const productIndex = cartItems.indexOf(
       cartItems.find(item => item.artNr === artNr)
     );
     cartItems.splice(productIndex, 1);
+    console.log(productIndex);
 
     //animate removal of cart item and removes cart item HTML from DOM
     animateRemoveFromCart(artNr);
-
     calculateTotalCartSum(cartItems);
     cartCount(cartItems);
+    localStorage.removeItem(`item_${id}`);
+  }
+
+
+function addItemToCart(e, id) {
+  //Check if the product is already in the shopping cart
+  if (cartItems.find(item => item.id === id)) {
+    alert("You already have this product in your shopping cart!");
+  } else {
+    //Pushing selected item to cartItem array
+    cartItems.push(allItems.find(item => item.id === id));
+
+    //Find the correct item in the cartItem array
+    const clickedItem = cartItems.find(item => item.id === id);
+  
+    //Quantity now gets added to the cart array when product gets placed in cart
+    const quantity = e.target.previousSibling.previousSibling.value;
+    clickedItem.quantity = quantity;
+
+    //Creating product html in cart 
+    createProductElement(clickedItem);
+    //Saves selected product to localstorage
+    localStorage.setItem(`item_${clickedItem.id}`, JSON.stringify(clickedItem));
   }
 }
 
@@ -94,6 +128,7 @@ function clearCart() {
 
   cartCount(cartItems);
   calculateTotalCartSum(cartItems);
+  localStorage.clear();
 }
 
 function calculateTotalCartSum(arr) {
@@ -105,14 +140,13 @@ function calculateTotalCartSum(arr) {
   console.log(totalSum);
   document.querySelector(
     "#checkOut"
-  ).innerText = `Checkout Total: $${totalSum}`;
+  ).innerText = `CHECKOUT - $${totalSum}`;
 }
 
-//Updating menu count
-function cartCount(cartCount) {
+function cartCount(items) {
   let count = 0;
-  for (let i = 0; i < cartCount.length; i++) {
-    count += parseInt(cartCount[i].quantity);
+  for (let i = 0; i < items.length; i++) {
+    count++; 
   }
   const cartLinkCount = document.getElementById("cart-count");
   cartLinkCount.innerText = `(${count})`;
@@ -175,16 +209,16 @@ function removeButtonHover() {
       .hover(
         function() {
           $(this).css({
-            width: "+=5px",
-            height: "+=5px",
-            bottom: "-=5px"
+            width: "+=2px",
+            height: "+=2px",
+            bottom: "-=2px"
           });
         },
         function() {
           $(this).css({
-            width: "-=5px",
-            height: "-=5px",
-            bottom: "+=5px"
+            width: "-=2px",
+            height: "-=2px",
+            bottom: "+=2px"
           });
         }
       );

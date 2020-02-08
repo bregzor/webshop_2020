@@ -17,29 +17,36 @@
     width: 100%;
     height: 50px;
     outline: none;
-    color: white;
-    background: #2d2d2d;
+    color: black;
+    background: white;
     border: 0;
     position: absolute;
     bottom: 80px;
     cursor: pointer;
+    font-family: $menu-font-fam;
+    font-weight: bold;
     &:hover {
-      background: #4e4e4e;
+      background: rgb(179, 155, 94);
+      color:white;
     }
   }
 
   .cart_remove_all {
     width: 100%;
     height: 45px;
-    outline: none;
-    color: white;
-    background: #8a0d0d;
+    color: black;
+    font-family: $menu-font-fam;
+    font-weight: bold;
+    background: white;
     border: 0;
     position: absolute;
     bottom: 130px;
+    outline: none;
     cursor: pointer;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.178);
     &:hover {
-      background: #8f4c4c;
+      background: #8a5252;
+      color:white;
     }
   }
 }
@@ -126,6 +133,11 @@
   }
 }
 
+.cart_product_image {
+  position: relative;
+  top:-10px;
+}
+
 .cart_productinfo_container {
   display: grid;
   width: 100%;
@@ -134,22 +146,40 @@
 }
 
 .cart_product_name {
+  font-family: $product-font;
+  color:$product-light-color;
+  font-weight: normal;
   grid-column: span 3;
-  justify-self: center;
-  font-size: 1.1em;
+  justify-self: flex-end;
+  font-size: 1em;
+  position: relative;
+  top: 5px;
 }
 
-.cart_product_artNr_text {
+.cart_product_art-container {
+  grid-column: span 3;
+  justify-self: flex-end;
+  font-size: 0.8em;
+  align-self: start;
+  display: flex;
+  flex-direction: row;
+}
+
+.cart_product_artNr_text {  
+  font-family: $product-font;
+  color:$product-light-color;
   grid-column-start: 1;
   justify-self: end;
-  font-size: 1em;
+  font-size: 0.8em;
   align-self: start;
 }
 
 .cart_product_artNr {
+  font-family: $product-font;
+  color:$product-light-color;
   grid-column: span 2;
   justify-self: start;
-  font-size: 1em;
+  font-size: 0.8em;
   align-self: start;
 }
 
@@ -162,19 +192,24 @@
 }
 
 .cart_product_price {
+  font-family: $product-font;
+  color:rgb(47, 47, 47);
+  font-size: 1.2em;
+  font-weight: bold;
   justify-self: start;
   align-self: end;
 }
 
 .cart_product_remove {
-  width: 25px;
-  height: 25px;
+  width: 20px;
+  height: 20px;
   justify-self: center;
   align-self: end;
   background-image: url("../media/Trashcan.png");
   background-repeat: no-repeat;
   background-position: 50% 50%;
   background-size: 100%;
+  left:15px;
   &:hover {
     cursor: pointer;
   }
