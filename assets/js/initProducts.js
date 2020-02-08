@@ -25,13 +25,14 @@ let addCount = 1;
 						<p class="products__item-info-price">${item.price} €</p>
 					</div>
 					<div class="products__item-info-bottom">
-            <p>ART-NR: ${item.artNr}</p>
-            <input type="number" class="products-quantity-input" min="1" value="1">
+						<p>ART-NR: ${item.artNr}</p>
+						<input type="number" class="products-quantity-input" min="1" value="1">
 						<a href="javascript:void(0)" class="btn" data-item="${item.id}">ADD</a>
 					</div>
 				</article>`;
         //updating html content and pushing all items to new array
         productSection.innerHTML = productHtml;
+        imgToCartAnimate();
         allItems.push(item);
       });
 
