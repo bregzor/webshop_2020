@@ -48,3 +48,11 @@ let addCount = 1;
     })
     .catch(err => console.log("Error in Fetch: " + err));
 })();
+
+$(document).scroll(function(){
+  let sticky = $('.page-header__top '),
+      scroll = $(document).scrollTop();
+
+  if (scroll >= 80) sticky.addClass('fixed');
+  else sticky.removeClass('fixed'); 
+});

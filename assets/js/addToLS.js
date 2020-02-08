@@ -12,13 +12,13 @@ function checkOutItemtoStorage(itemsArr) {
 
 const chkOutBtn = document.querySelector('#checkOut');
 chkOutBtn.addEventListener('click', () => {
-	//Determine if cart is empty, an send to landing page
+	//Determine if cart is empty, and send to landing page
 	//Clearing storage to add correct array data
 	if (cartItems.length > 0) {
 		localStorage.clear()
 		checkOutItemtoStorage(cartItems);
 		location.href = 'landing.html';
 	} else {
-		alert("Please add something to cart");
+		alert("Please add something to cart!");
 	}
 });

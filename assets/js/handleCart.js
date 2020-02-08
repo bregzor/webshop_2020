@@ -78,7 +78,6 @@ function cartItemQuantityChange(event) {
 
 function removeItemFromCart(event) {
   //Find the clicked item in cart array and remove it
-  console.log(event.target.parentElement.children[1].children[1].innerHTML);
   const artNr = event.target.parentElement.children[1].children[1].innerHTML;
 
   //const artNr = event.target.parentElement.children[2].innerHTML;
@@ -150,7 +149,13 @@ function cartCount(items) {
 }
 
 function openCart() {
-  cart.style.width = "400px";
+  const screenWidth = screen.width;
+  if(screenWidth < 760) {
+    cart.style.width = "300px";
+  } else {
+    cart.style.width = "400px";
+  }
+  
 }
 
 function closeCart() {

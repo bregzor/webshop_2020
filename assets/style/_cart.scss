@@ -154,6 +154,9 @@
   font-size: 1em;
   position: relative;
   top: 5px;
+  @media(max-width:760px) {
+    font-size: 0.7em;
+  }
 }
 
 .cart_product_art-container {
