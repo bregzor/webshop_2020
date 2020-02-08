@@ -4,7 +4,7 @@ let count = 0;
 
 //Populating cart from LS
 (function initCart() {
-	for (let i = 0; i < localStorage.length; i++) {
+  for (let i = 0; i < localStorage.length; i++) {
     //Getting item from ls, with key(length of storage)
     const item = JSON.parse(localStorage.getItem(localStorage.key(i)));
     //Creating cartelement
@@ -14,19 +14,19 @@ let count = 0;
   }
   //Updating cart info
   cartCount(cartItems);
-	calculateTotalCartSum(cartItems);
-  })();
-  
+  calculateTotalCartSum(cartItems);
+})();
+
 //creating product cart element
 function createProductElement(productData) {
-   //Create the structure of the cart HTML
-   const cartList = document.getElementsByClassName("cart_list_container")[0];
+  //Create the structure of the cart HTML
+  const cartList = document.getElementsByClassName("cart_list_container")[0];
 
-   const cartItemContainer = document.createElement("article");
-   cartItemContainer.classList.add("cart_product_container");
-   cartItemContainer.id = `cart_product_container_${productData.artNr}`;
+  const cartItemContainer = document.createElement("article");
+  cartItemContainer.classList.add("cart_product_container");
+  cartItemContainer.id = `cart_product_container_${productData.artNr}`;
 
-   let itemHTML = `
+  let itemHTML = `
    <img src="${productData.imageSrc}" class="cart_product_image" width="80px" height="80px">
    <div class="cart_productinfo_container">
      <h5 class="cart_product_name">${productData.name}</h5>
@@ -39,63 +39,62 @@ function createProductElement(productData) {
      <div data-id="${productData.id}" class="cart_product_remove">
    </div>
    `;
-   
-    //Inserting the cart HTML into the cart
-    cartItemContainer.innerHTML = itemHTML;
-    cartList.appendChild(cartItemContainer);
 
-    //Add event listener to the remove button for each item placed in cart.
-    cartItemContainer
-      .getElementsByClassName("cart_product_remove")[0]
-      .addEventListener("click", removeItemFromCart);
+  //Inserting the cart HTML into the cart
+  cartItemContainer.innerHTML = itemHTML;
+  cartList.appendChild(cartItemContainer);
 
-    //Event listener to change quantity in cart
-    cartItemContainer
-      .getElementsByClassName("cart_product_quantity")[0]
-      .addEventListener("change", cartItemQuantityChange);
+  //Add event listener to the remove button for each item placed in cart.
+  cartItemContainer
+    .getElementsByClassName("cart_product_remove")[0]
+    .addEventListener("click", removeItemFromCart);
 
-    cartCount(cartItems);
-    calculateTotalCartSum(cartItems);
-   //cartItems.push(item);
-    animateAddProduct();
-    removeButtonHover();
-  }
+  //Event listener to change quantity in cart
+  cartItemContainer
+    .getElementsByClassName("cart_product_quantity")[0]
+    .addEventListener("change", cartItemQuantityChange);
 
-    
-  function cartItemQuantityChange(event) {
-    //Find the index of the item beeing changed
-    const artNr = event.target.parentElement.children[1].children[1].innerHTML;
-    const productIndex = cartItems.indexOf(
-      cartItems.find(item => item.artNr === artNr)
-    );
+  cartCount(cartItems);
+  calculateTotalCartSum(cartItems);
+  //cartItems.push(item);
+  animateAddProduct();
+  removeButtonHover();
+  animateAddToCart(productData.artNr);
+}
 
-    //Change the quantity of the item in cart array
-    cartItems[productIndex].quantity = event.target.value;
+function cartItemQuantityChange(event) {
+  //Find the index of the item beeing changed
+  const artNr = event.target.parentElement.children[1].children[1].innerHTML;
+  const productIndex = cartItems.indexOf(
+    cartItems.find(item => item.artNr === artNr)
+  );
 
-    calculateTotalCartSum(cartItems);
-    cartCount(cartItems);
-  }
+  //Change the quantity of the item in cart array
+  cartItems[productIndex].quantity = event.target.value;
 
-  function removeItemFromCart(event) {
-    //Find the clicked item in cart array and remove it
-    console.log(event.target.parentElement.children[1].children[1].innerHTML);
-    const artNr = event.target.parentElement.children[1].children[1].innerHTML;
-    
-    //const artNr = event.target.parentElement.children[2].innerHTML;
-    const id = event.target.dataset.id;
-    const productIndex = cartItems.indexOf(
-      cartItems.find(item => item.artNr === artNr)
-    );
-    cartItems.splice(productIndex, 1);
-    console.log(productIndex);
+  calculateTotalCartSum(cartItems);
+  cartCount(cartItems);
+}
 
-    //animate removal of cart item and removes cart item HTML from DOM
-    animateRemoveFromCart(artNr);
-    calculateTotalCartSum(cartItems);
-    cartCount(cartItems);
-    localStorage.removeItem(`item_${id}`);
-  }
+function removeItemFromCart(event) {
+  //Find the clicked item in cart array and remove it
+  console.log(event.target.parentElement.children[1].children[1].innerHTML);
+  const artNr = event.target.parentElement.children[1].children[1].innerHTML;
 
+  //const artNr = event.target.parentElement.children[2].innerHTML;
+  const id = event.target.dataset.id;
+  const productIndex = cartItems.indexOf(
+    cartItems.find(item => item.artNr === artNr)
+  );
+  cartItems.splice(productIndex, 1);
+  console.log(productIndex);
+
+  //animate removal of cart item and removes cart item HTML from DOM
+  animateRemoveFromCart(artNr);
+  calculateTotalCartSum(cartItems);
+  cartCount(cartItems);
+  localStorage.removeItem(`item_${id}`);
+}
 
 function addItemToCart(e, id) {
   //Check if the product is already in the shopping cart
@@ -107,12 +106,12 @@ function addItemToCart(e, id) {
 
     //Find the correct item in the cartItem array
     const clickedItem = cartItems.find(item => item.id === id);
-  
+
     //Quantity now gets added to the cart array when product gets placed in cart
     const quantity = e.target.previousSibling.previousSibling.value;
     clickedItem.quantity = quantity;
 
-    //Creating product html in cart 
+    //Creating product html in cart
     createProductElement(clickedItem);
     //Saves selected product to localstorage
     localStorage.setItem(`item_${clickedItem.id}`, JSON.stringify(clickedItem));
@@ -138,15 +137,13 @@ function calculateTotalCartSum(arr) {
     totalSum = totalSum + parseInt(item.price) * parseInt(item.quantity);
   });
   console.log(totalSum);
-  document.querySelector(
-    "#checkOut"
-  ).innerText = `CHECKOUT - $${totalSum}`;
+  document.querySelector("#checkOut").innerText = `CHECKOUT - $${totalSum}`;
 }
 
 function cartCount(items) {
   let count = 0;
   for (let i = 0; i < items.length; i++) {
-    count++; 
+    count++;
   }
   const cartLinkCount = document.getElementById("cart-count");
   cartLinkCount.innerText = `(${count})`;
@@ -194,6 +191,16 @@ function animateRemoveFromCart(artNr) {
   });
 }
 
+function animateAddToCart(artNr) {
+  $(function() {
+    $(`#cart_product_container_${artNr}`)
+      .delay(1500)
+      .slideDown(200, function() {
+        $(this).css({ display: "flex" });
+      });
+  });
+}
+
 function animateClearCart() {
   $(function() {
     $(`.cart_product_container`).slideUp(300, function() {
@@ -226,17 +233,20 @@ function removeButtonHover() {
 }
 
 function imgToCartAnimate() {
+  //Adds event listener to the add button
   $(".btn").on("click", function() {
-    console.log("test");
     let cart = $("#cart-link");
+    //Find the image
     let imageToDrag = $(this)
       .parent()
       .parent()
       .find("img")
       .eq(0);
     if (imageToDrag) {
+      //clones the image
       let imgClone = imageToDrag
         .clone()
+        //Sets the offset of the clone image to the same as the original image
         .offset({
           top: imageToDrag.offset().top,
           left: imageToDrag.offset().left
@@ -248,21 +258,25 @@ function imgToCartAnimate() {
           width: "170px",
           "z-index": 11
         })
+        //appends the cloned image to the body to be able to move it freely on the page
         .appendTo($("body"))
+        //animates the cloned image to move to the cart
         .animate(
           {
             top: cart.offset().top + 10,
             left: cart.offset().left + 10,
-            width: 75,
+            width: 70,
             height: 75
           },
           1000
         );
+      //animates the cloned image to shrink
       imgClone.animate(
         {
           width: 0,
           height: 0
         },
+        //removes the image from the DOM
         function() {
           $(this).detach();
         }
