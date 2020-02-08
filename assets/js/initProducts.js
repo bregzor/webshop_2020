@@ -15,7 +15,7 @@ let addCount = 1;
     .then(products => {
       let productHtml = "";
       //Submitting each article with data from js object
-      products.forEach(function(item) {
+      products.forEach(item => {
         //increments html
         productHtml += `
 				<article class="products__item">
@@ -40,11 +40,10 @@ let addCount = 1;
       for (let i = 0; i < btns.length; i++) {
         const btn = btns[i];
         btn.addEventListener("click", e => {
-		  const prodID = event.target.dataset.item;
-		  console.log(event.target);
+          const prodID = event.target.dataset.item;
           addItemToCart(e, prodID);
         });
-      }	
+      }
     })
     .catch(err => console.log("Error in Fetch: " + err));
 })();

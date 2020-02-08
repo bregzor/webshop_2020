@@ -71,12 +71,6 @@
                   border-bottom: none;
                 }
               }
-
-          // &:last-child {
-          //   position: absolute;
-          //   right: 50px;
-          // }
-
           &:hover {
             border-bottom: 3px solid goldenrod;
           }
@@ -87,7 +81,6 @@
             font-weight: 500;
             text-decoration: none;
           }
-
         }
       }
     }
