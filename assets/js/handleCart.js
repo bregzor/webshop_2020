@@ -192,17 +192,21 @@ function removeButtonHover() {
 }
 
 function imgToCartAnimate() {
+  //Adds event listener to the add button
   $(".btn").on("click", function() {
     console.log("test");
     let cart = $("#cart-link");
+    //Find the image
     let imageToDrag = $(this)
       .parent()
       .parent()
       .find("img")
       .eq(0);
     if (imageToDrag) {
+      //clones the image
       let imgClone = imageToDrag
         .clone()
+        //Sets the offset of the clone image to the same as the original image
         .offset({
           top: imageToDrag.offset().top,
           left: imageToDrag.offset().left
@@ -214,21 +218,25 @@ function imgToCartAnimate() {
           width: "170px",
           "z-index": 11
         })
+        //appends the cloned image to the body to be able to move it freely on the page
         .appendTo($("body"))
+        //animates the cloned image to move to the cart
         .animate(
           {
             top: cart.offset().top + 10,
             left: cart.offset().left + 10,
-            width: 75,
+            width: 70,
             height: 75
           },
           1000
         );
+      //animates the cloned image to shrink
       imgClone.animate(
         {
           width: 0,
           height: 0
         },
+        //removes the image from the DOM
         function() {
           $(this).detach();
         }
