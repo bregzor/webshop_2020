@@ -316,6 +316,12 @@ input {
   height: 74vh;
 }
 
+@media (max-width: 600px) {
+  .page-header__hero {
+    background-size: auto;
+  }
+}
+
 .page-header__hero-header {
   color: white;
   font-family: "Roboto Slab", sans-serif;
@@ -330,7 +336,8 @@ input {
 @media (max-width: 600px) {
   .page-header__hero-header {
     left: 0;
-    width: 90%;
+    width: 80%;
+    text-align: center;
   }
 }
 
@@ -345,6 +352,12 @@ input {
   width: 60vw;
   -ms-flex-item-align: center;
       align-self: center;
+}
+
+@media (max-width: 600px) {
+  .page-header__about {
+    width: 90vw;
+  }
 }
 
 .page-header__about h3,
@@ -555,6 +568,7 @@ input {
           align-items: center;
   border-bottom: 1px solid rgba(0, 0, 0, 0.178);
   padding: 60px 0 60px 0;
+  display: none;
 }
 
 .cart_product_container:first-child {
@@ -563,7 +577,6 @@ input {
 
 .cart_product_image {
   position: relative;
-  top: -10px;
 }
 
 .cart_productinfo_container {
