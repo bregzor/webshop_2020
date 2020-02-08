@@ -22,11 +22,11 @@ let addCount = 1;
 					<img class="products__item-img" src='${item.imageSrc}' width="230" alt=''>
 					<div class="products__item-info">
 						<h4>${item.name}</h4>
-						<p class="products__item-info-price">${item.price} €</p>
+						<p class="products__item-info-price">$${item.price}</p>
 					</div>
 					<div class="products__item-info-bottom">
 						<p>ART-NR: ${item.artNr}</p>
-						<input type="number" class="products-quantity-input" min="1" value="1">
+						<label>QT</label><input type="number" id="pr_input" class="products-quantity-input" min="1" value="1">
 						<a href="javascript:void(0)" class="btn" data-item="${item.id}">ADD</a>
 					</div>
 				</article>`;

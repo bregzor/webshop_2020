@@ -27,11 +27,13 @@ function createProductElement(productData) {
    cartItemContainer.id = `cart_product_container_${productData.artNr}`;
 
    let itemHTML = `
-   <img src="${productData.imageSrc}" class="cart_product_image" width="100px" height="100px">
+   <img src="${productData.imageSrc}" class="cart_product_image" width="80px" height="80px">
    <div class="cart_productinfo_container">
      <h5 class="cart_product_name">${productData.name}</h5>
-     <p class="cart_product_artNr_text">ArtNr:&nbsp;</p>
+     <div class="cart_product_art-container">
+     <p class="cart_product_artNr_text">ART-NR:&nbsp;</p>
      <p class="cart_product_artNr">${productData.artNr}</p>
+     </div>
      <input type="number" class="cart_product_quantity" min="1" value="${productData.quantity}">
      <p class="cart_product_price">à&nbsp;&nbsp;&nbsp;$${productData.price}</p>
      <div data-id="${productData.id}" class="cart_product_remove">
@@ -62,7 +64,7 @@ function createProductElement(productData) {
     
   function cartItemQuantityChange(event) {
     //Find the index of the item beeing changed
-    const artNr = event.target.parentElement.children[2].innerHTML;
+    const artNr = event.target.parentElement.children[1].children[1].innerHTML;
     const productIndex = cartItems.indexOf(
       cartItems.find(item => item.artNr === artNr)
     );
@@ -76,7 +78,10 @@ function createProductElement(productData) {
 
   function removeItemFromCart(event) {
     //Find the clicked item in cart array and remove it
-    const artNr = event.target.parentElement.children[2].innerHTML;
+    console.log(event.target.parentElement.children[1].children[1].innerHTML);
+    const artNr = event.target.parentElement.children[1].children[1].innerHTML;
+    
+    //const artNr = event.target.parentElement.children[2].innerHTML;
     const id = event.target.dataset.id;
     const productIndex = cartItems.indexOf(
       cartItems.find(item => item.artNr === artNr)
@@ -135,7 +140,7 @@ function calculateTotalCartSum(arr) {
   console.log(totalSum);
   document.querySelector(
     "#checkOut"
-  ).innerText = `Checkout Total: $${totalSum}`;
+  ).innerText = `CHECKOUT - $${totalSum}`;
 }
 
 function cartCount(items) {
@@ -204,16 +209,16 @@ function removeButtonHover() {
       .hover(
         function() {
           $(this).css({
-            width: "+=5px",
-            height: "+=5px",
-            bottom: "-=5px"
+            width: "+=2px",
+            height: "+=2px",
+            bottom: "-=2px"
           });
         },
         function() {
           $(this).css({
-            width: "-=5px",
-            height: "-=5px",
-            bottom: "+=5px"
+            width: "-=2px",
+            height: "-=2px",
+            bottom: "+=2px"
           });
         }
       );

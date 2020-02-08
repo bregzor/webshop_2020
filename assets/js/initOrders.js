@@ -8,7 +8,7 @@
         total = total + parseInt(storageItem.price) * parseInt(storageItem.quantity);
     }
     const totalEl = document.querySelector('.orders__bottom-sum-text');
-    totalEl.innerText = `Total: ${total}€`;
+    totalEl.innerText = `Total: $${total}`;
     localStorage.clear();
 })();
 
