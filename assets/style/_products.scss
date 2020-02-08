@@ -46,9 +46,11 @@
         padding:30px;
         transform: rotate3d(1, 1, 1, 0deg);
         transition: 250ms ease-in-out;
+        border: 1px solid transparent;
         &:hover {
             transform: rotate3d(1, 1, 1, 1deg);
             transition: 250ms ease-in-out;
+            border: 1px solid rgba(212, 161, 30, 0.609);
             cursor: pointer;
         }
         
@@ -112,8 +114,9 @@
 .btn {
     content:url(../media/add-btn.png);
     height:30px;
+    opacity: 0.8;
     &:hover {
-        opacity: 0.8;
+        opacity: 1;
     }
 }
 

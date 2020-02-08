@@ -13,6 +13,10 @@ body {
   scroll-behavior: smooth;
 }
 
+h1 {
+  font-family: 'Pacifico', sans-serif;
+}
+
 h3 {
   font-size: 28px;
 }
@@ -245,6 +249,7 @@ input {
       -ms-flex-align: center;
           align-items: center;
   z-index: 10;
+  border-bottom: 1px solid rgba(212, 161, 30, 0.609);
 }
 
 .page-header__top nav ul {
@@ -553,7 +558,7 @@ input {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.178);
+  border-bottom: 1px solid rgba(228, 176, 80, 0.561);
   padding: 60px 0 60px 0;
 }
 
@@ -750,6 +755,7 @@ input {
           transform: rotate3d(1, 1, 1, 0deg);
   -webkit-transition: 250ms ease-in-out;
   transition: 250ms ease-in-out;
+  border: 1px solid transparent;
 }
 
 .product-section .products__item:hover {
@@ -757,6 +763,7 @@ input {
           transform: rotate3d(1, 1, 1, 1deg);
   -webkit-transition: 250ms ease-in-out;
   transition: 250ms ease-in-out;
+  border: 1px solid rgba(212, 161, 30, 0.609);
   cursor: pointer;
 }
 
@@ -832,10 +839,11 @@ input {
 .btn {
   content: url(../media/add-btn.png);
   height: 30px;
+  opacity: 0.8;
 }
 
 .btn:hover {
-  opacity: 0.8;
+  opacity: 1;
 }
 
 .products-quantity-input {
@@ -851,6 +859,8 @@ input {
 }
 
 .footer-area {
+  height: 100px;
+  width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -863,13 +873,31 @@ input {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  height: 100px;
-  width: 100%;
   background: black;
   color: white;
 }
 
+.footer-area__info {
+  display: inherit;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  position: relative;
+  left: 40px;
+}
+
 .footer-area__info h4, .footer-area__info p {
-  font-family: 'Poppins',sans-serif;
+  font-family: 'Quicksand',sans-serif;
+}
+
+.footer-area__logo h1 {
+  font-family: "Pacifico", sans-serif;
 }
 /*# sourceMappingURL=style.css.map */
