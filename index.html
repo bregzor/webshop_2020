@@ -16,20 +16,18 @@
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <body>
     <header class="page-header">
-        <div class="page-header__top">
-            <nav>
-                <ul>
-                    <li><a href="#">HOME</a></li>
-                    <li><a href="#shop">SHOP</a></li>
-                    <li><a href="#foo">CONTACT</a></li>
-                </ul>
-            </nav>
-            <h1 class="page-header__logo">FlyReelz</h1>
-            <div class="page-header__top-cart">
-                <div href="#" id="cart-link" onclick="openCart()"></div>
-                <div id="cart-count"></div>
+        <nav class="nav_bar">
+            <ul class="nav_bar_navigation">
+                <li><a class="nav_bar_navigation_btn" href="#">HOME</a></li>
+                <li><a class="nav_bar_navigation_btn" href="#shop">SHOP</a></li>
+                <li><a class="nav_bar_navigation_btn" href="#foo">CONTACT</a></li>
+            </ul>
+            <div class="nav_bar_logo"><h1>FlyReelz</h1></div>
+            <div class="nav_bar_cart">
+                <div href="#" class="nav_bar_cart_btn" onclick="openCart()"></div>
+                <div id="nav_bar_cart_count"></div>
             </div>
-        </div>
+        </nav>
         </div>
         <div class="page-header__hero">
             <h2 class="page-header__hero-header">

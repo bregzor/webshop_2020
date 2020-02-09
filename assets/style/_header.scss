@@ -5,78 +5,107 @@
   height: 100vh;
   width: 100vw;
 
-  &--small {
-    height: 80px;
-  }
-
-  &--full {
-    height: 100vh;
-  }
-
-  &__logo {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50px);
-    font-family: $logo-font;
-    color: rgb(78, 78, 78);
-    letter-spacing: 4px;
-
-    @media (max-width: 760px) {
-      order: 1;
-      transform: none;
-      position: relative;
-      left: 15px;
-      font-size: 20px;
-    }
-}
-  
-
-  &__top {
-    display: inherit;
-    position: block;
+  .nav_bar {
+    display: flex;
+    position: fixed;
     top: 0;
-    width: 100%;
+    width: 100vw;
     background: rgba(255, 255, 255, 0.9);
     flex-direction: row;
     height: 80px;
     align-items: center;
+    justify-content: space-between;
     z-index: 10;
-    border-bottom: 1px solid rgba(212, 161, 30, 0.609);
-    transition: 200ms ease-in;
-    nav {
-      order: 2;
-      ul {
-        display: flex;
-        min-width: 300px;
-        list-style-type: none;
-        justify-content: space-evenly;
+    transition: height 500ms;
 
-        @media (max-width: 760px) {
-          min-width: 140px;
-          font-size: 12px;
-          justify-self: center;
-          align-self: center;
-          position: relative;
-          left: 15%;
-          top:5px;
-          
+    @media (max-width: 1000px) {
+      height: 120px;
+      align-items: flex-end;
+      justify-content: center;
+    }
+
+    &_navigation {
+      display: flex;
+      flex-direction: row;
+      list-style-type: none;
+      justify-self: start;
+      justify-content: space-around;
+      margin-left: 50px;
+      flex: 1;
+
+      @media (max-width: 1000px) {
+        flex: 3;
+        margin-left: 0;
+        margin-bottom: 20px;
+      }
+
+      &_btn {
+        font-family: $menu-font-fam;
+        color: black;
+        font-weight: 500;
+        text-decoration: none;
+        &:hover {
+          border-bottom: 3px solid goldenrod;
+        }
+      }
+    }
+
+    &_logo {
+      display: flex;
+      font-family: $logo-font;
+      color: rgb(78, 78, 78);
+      letter-spacing: 4px;
+      justify-content: center;
+      flex: 1;
+
+      @media (max-width: 1000px) {
+        position: absolute;
+        top: 20px;
+      }
+    }
+
+    &_cart {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-end;
+      align-items: center;
+      margin-right: 50px;
+      flex: 1;
+
+      @media (max-width: 1000px) {
+        flex: 0;
+        margin-bottom: 15px;
+      }
+
+      @media (max-width: 600px) {
+        flex: 0;
+        margin-bottom: 15px;
+        margin-right: 25px;
+      }
+
+      &_btn {
+        background-image: url("../media/Cart.png");
+        width: 30px;
+        height: 30px;
+        background-repeat: no-repeat;
+        background-position: 50% 50%;
+        background-size: 100%;
+        border-bottom: 3px solid transparent;
+
+        &:hover {
+          cursor: pointer;
+          border-bottom: 3px solid goldenrod;
         }
 
-        li {
-          display: inline;
-        //  padding-bottom: 1vh;
-          border-bottom: 3px solid transparent;
-
-          &:hover {
-            border-bottom: 3px solid goldenrod;
-          }
-          a {
-            font-family: $menu-font-fam;
-            color: black;
-            font-weight: 500;
-            text-decoration: none;
-          }
+        @media (max-width: 690px) {
         }
+      }
+
+      #nav_bar_cart_count {
+        font-family: $menu-font-fam;
+        font-size: 16px;
+        font-weight: bold;
+        color: goldenrod;
       }
     }
 
@@ -94,16 +123,13 @@
 
   &__hero {
     display: inherit;
-    width: 100vw;
+
     background-image: url(../media/hero.jpg);
     background-repeat: no-repeat;
-    background-position: top;
-    background-size: 100%;
-    height: 74vh;
-
-    @media (max-width: 600px) {
-      background-size: auto;
-    }
+    background-position: right;
+    background-size: cover;
+    min-height: 74vh;
+    object-fit: cover;
 
     &-header {
       color: white;
@@ -114,8 +140,7 @@
       transform: translateX(15%);
       top: 25vh;
 
-      @media (max-width: 600px) {
-
+      @media (max-width: 1200px) {
         left: 0;
         width: 80%;
         text-align: center;
@@ -129,20 +154,20 @@
     flex-direction: column;
     width: 60vw;
     align-self: center;
+    margin-top: 70px;
 
-    @media (max-width: 600px) {
-      width: 70vw;
-      padding-top: 5vh;
-      padding-bottom: 5vh;
-      h3, p {
-        font-size: 80%;
-      }
+    @media (max-width: 1000px) {
+      margin-top: 10%;
+      width: 90vw;
     }
     h3,
     p {
       font-family: $product-font;
       color: $main-h-color;
       text-align: center;
+      @media (max-width: 1000px) {
+        font-size: 80%;
+      }
     }
 
     p {
@@ -151,35 +176,4 @@
       letter-spacing: normal;
     }
   }
-}
-
-#cart-link {
-  background-image: url("../media/Cart.png");
-  width: 30px;
-  height: 30px;
-  justify-self: center;
-  align-self: end;
-  background-repeat: no-repeat;
-  background-position: 50% 50%;
-  background-size: 100%;
-
-  &:hover {
-    cursor: pointer;
-    border-bottom: 3px solid goldenrod;
-  }
-}
-
-#cart-count {
-  font-family: $menu-font-fam;
-  font-size: 16px;
-  font-weight: bold;
-  color: goldenrod;
-}
-
-
-.fixed {
-  position: fixed !important;
-  transition: 200ms ease-in;
-  //top:70px !important;
-  z-index: 10000;
 }

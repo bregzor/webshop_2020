@@ -12,6 +12,16 @@
   overflow-x: hidden; /* Disable horizontal scroll */
   padding-top: 30px; /* Place content 60px from the top */
   transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+  @media (max-width: 1000px) {
+    top: 120px;
+    height: calc(100% - 120px);
+    z-index: 11;
+  }
+  @media (max-width: 600px) {
+    top: 0;
+    height: 100%;
+    z-index: 11;
+  }
 
   .checkout {
     width: 100%;
@@ -28,6 +38,12 @@
     &:hover {
       background: rgb(179, 155, 94);
       color: white;
+    }
+    @media (max-width: 1000px) {
+      bottom: 0;
+    }
+    @media (max-width: 600px) {
+      bottom: 0;
     }
   }
 
@@ -47,6 +63,9 @@
     &:hover {
       background: #8a5252;
       color: white;
+    }
+    @media (max-width: 1000px) {
+      bottom: 50px;
     }
   }
 }
@@ -95,6 +114,13 @@
   right: 25px;
   font-size: 36px;
   margin-left: 50px;
+  @media (max-width: 600px) {
+    margin-right: 20px;
+  }
+
+  &:hover {
+    cursor: pointer;
+  }
 }
 
 /* Style page content - use this if you want to push the page content to the right when you open the side navigation */
@@ -119,6 +145,9 @@
   width: 80%;
   overflow: auto;
   max-height: 75%;
+  @media (max-width: 600px) {
+    margin-right: 3%;
+  }
 }
 
 .cart_product_container {
@@ -212,7 +241,6 @@
   background-repeat: no-repeat;
   background-position: 50% 50%;
   background-size: 100%;
-  left: 15px;
   &:hover {
     cursor: pointer;
   }
