@@ -14,7 +14,12 @@
   transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
   @media (max-width: 1000px) {
     top: 120px;
-    height: 100% - 120px;
+    height: calc(100% - 120px);
+    z-index: 11;
+  }
+  @media (max-width: 600px) {
+    top: 0;
+    height: 100%;
     z-index: 11;
   }
 
@@ -37,6 +42,9 @@
     @media (max-width: 1000px) {
       bottom: 0;
     }
+    @media (max-width: 600px) {
+      bottom: 0;
+    }
   }
 
   .cart_remove_all {
@@ -57,7 +65,7 @@
       color: white;
     }
     @media (max-width: 1000px) {
-      bottom: 168px;
+      bottom: 50px;
     }
   }
 }

@@ -9,7 +9,7 @@
     display: flex;
     position: fixed;
     top: 0;
-    width: 100%;
+    width: 100vw;
     background: rgba(255, 255, 255, 0.9);
     flex-direction: row;
     height: 80px;
@@ -27,7 +27,6 @@
     &_navigation {
       display: flex;
       flex-direction: row;
-      min-width: 300px;
       list-style-type: none;
       justify-self: start;
       justify-content: space-around;
@@ -68,13 +67,20 @@
     &_cart {
       display: flex;
       flex-direction: row;
-      justify-content: end;
+      justify-content: flex-end;
+      align-items: center;
       margin-right: 50px;
       flex: 1;
 
       @media (max-width: 1000px) {
         flex: 0;
         margin-bottom: 15px;
+      }
+
+      @media (max-width: 600px) {
+        flex: 0;
+        margin-bottom: 15px;
+        margin-right: 25px;
       }
 
       &_btn {
