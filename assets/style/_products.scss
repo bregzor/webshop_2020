@@ -28,6 +28,9 @@
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
+    @media (max-width: 600px) {
+      width: 100%;
+    }
 
     &::before {
       content: "";
@@ -90,7 +93,7 @@
         }
       }
       &-info-bottom {
-        display: inherit;
+        display: flex;
         flex-direction: row;
         width: 100%;
         justify-content: space-between;
@@ -99,7 +102,6 @@
           font-family: $product-font;
           color: black;
           position: relative;
-          left: 45px;
         }
         p {
           font-family: $product-font;

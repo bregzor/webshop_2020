@@ -837,6 +837,12 @@ input {
           align-items: center;
 }
 
+@media (max-width: 600px) {
+  .product-section .products {
+    width: 100%;
+  }
+}
+
 .product-section .products::before {
   content: "";
   width: 100%;
@@ -916,7 +922,9 @@ input {
 }
 
 .product-section .products__item-info-bottom {
-  display: inherit;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
@@ -934,7 +942,6 @@ input {
   font-family: "Roboto Slab", sans-serif;
   color: black;
   position: relative;
-  left: 45px;
 }
 
 .product-section .products__item-info-bottom p {

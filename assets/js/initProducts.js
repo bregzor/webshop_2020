@@ -26,8 +26,10 @@ let addCount = 1;
 					</div>
 					<div class="products__item-info-bottom">
 						<p>ART-NR: ${item.artNr}</p>
-						<label>QT</label><input type="number" id="pr_input" class="products-quantity-input" min="1" value="1">
-						<a href="javascript:void(0)" class="btn" data-item="${item.id}">ADD</a>
+						<div>
+              <label>QT</label>&nbsp;&nbsp;&nbsp;<input type="number" id="pr_input" class="products-quantity-input" min="1" value="1">
+            </div>
+  					<a href="javascript:void(0)" class="btn" data-item="${item.id}">ADD</a>
 					</div>
 				</article>`;
         //updating html content and pushing all items to new array
