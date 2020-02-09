@@ -339,6 +339,9 @@ input {
         -ms-flex: 0;
             flex: 0;
     margin-bottom: 15px;
+    position: absolute;
+    top: 25px;
+    right: 50px;
   }
 }
 
@@ -348,7 +351,7 @@ input {
         -ms-flex: 0;
             flex: 0;
     margin-bottom: 15px;
-    margin-right: 25px;
+    right: -10px;
   }
 }
 
