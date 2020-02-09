@@ -791,7 +791,7 @@ input {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  background: #E6E6E6;
+  background: #e6e6e6;
   width: 100vw;
   -webkit-box-align: center;
       -ms-flex-align: center;
@@ -811,6 +811,7 @@ input {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  width: 100vw;
 }
 
 .product-section__header {
@@ -837,7 +838,7 @@ input {
 }
 
 .product-section .products::before {
-  content: '';
+  content: "";
   width: 100%;
   margin-bottom: 40px;
   border-bottom: 1px solid #797676;
@@ -899,7 +900,7 @@ input {
 }
 
 .product-section .products__item-info::before {
-  content: '';
+  content: "";
   width: 100%;
   border-bottom: 1px solid #8b8b8b;
   position: relative;
@@ -907,7 +908,7 @@ input {
 }
 
 .product-section .products__item-info::after {
-  content: '';
+  content: "";
   width: 100%;
   border-bottom: 1px solid #8b8b8b;
   position: relative;
@@ -957,7 +958,7 @@ input {
 }
 
 .products-quantity-input::before {
-  content: 'QT';
+  content: "QT";
   width: 5%;
   font-family: "Roboto Slab", sans-serif;
   color: #727272;
