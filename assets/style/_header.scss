@@ -143,16 +143,15 @@
   &__about {
     display: flex;
     flex-direction: column;
-    width: 60vw;
+    width: 100%;
+    height: 100%;
     align-self: center;
-    margin-top: 70px;
+    justify-content: center;
+    align-items: center;
 
-    @media (max-width: 1000px) {
-      margin-top: 10%;
-      width: 90vw;
-    }
     h3,
     p {
+      width: 80%;
       font-family: $product-font;
       color: $main-h-color;
       text-align: center;
