@@ -145,12 +145,16 @@ function cartCount(items) {
   for (let i = 0; i < items.length; i++) {
     count++;
   }
-  const cartLinkCount = document.getElementById("cart-count");
+  const cartLinkCount = document.getElementById("nav_bar_cart_count");
   cartLinkCount.innerText = `(${count})`;
 }
 
 function openCart() {
-  cart.style.width = "400px";
+  if (screen.width <= 600) {
+    cart.style.width = "100%";
+  } else {
+    cart.style.width = "400px";
+  }
 }
 
 function closeCart() {
@@ -159,24 +163,24 @@ function closeCart() {
 
 function animateAddProduct() {
   $(function() {
-    $("#cart-link")
+    $(".nav_bar_cart_btn")
       .css({ position: "relative" })
       .delay(1400)
       .animate(
         {
           width: "+=20",
-          height: "+=20px",
-          top: "-=10px",
-          right: "-=10px"
+          height: "+=20px"
+          // bottom: "-=10px",
+          // left: "-=10px"
         },
         100
       )
       .animate(
         {
           width: "-=20",
-          height: "-=20px",
-          top: "+=10px",
-          right: "+=10px"
+          height: "-=20px"
+          // bottom: "+=10px",
+          // left: "+=10px"
         },
         100
       );
@@ -235,7 +239,7 @@ function removeButtonHover() {
 function imgToCartAnimate() {
   //Adds event listener to the add button
   $(".btn").on("click", function() {
-    let cart = $("#cart-link");
+    let cart = $("#nav_bar_cart_count");
     //Find the image
     let imageToDrag = $(this)
       .parent()
