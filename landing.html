@@ -17,18 +17,20 @@
 
 <body>
     <header class="page-header page-header--small">
-        <div class="page-header__top">
-            <nav>
-                <ul>
-                    <li><a href="index.html">HOME</a></li>
-                    <!-- <li><a href="#shop">SHOP</a></li>
-                    <li><a href="#">CONTACT</a></li>
-                    <li><a href="#" onclick="openCart()">CART</a></li> -->
-                </ul>
-            </nav>
-            <h1 class="page-header__logo">FlyReelz</h1>
-        </div>
-        </div>
+        <nav class="nav_bar">
+            <ul class="nav_bar_navigation">
+                <li><a class="nav_bar_navigation_btn" href="#">HOME</a></li>
+                <li><a class="nav_bar_navigation_btn" href="#shop">SHOP</a></li>
+                <li><a class="nav_bar_navigation_btn" href="#foo">CONTACT</a></li>
+            </ul>
+            <div class="nav_bar_logo">
+                <h1>FlyReelz</h1>
+            </div>
+            <div class="nav_bar_cart">
+                <div href="#" class="nav_bar_cart_btn" onclick="openCart()"></div>
+                <div id="nav_bar_cart_count"></div>
+            </div>
+        </nav>
     </header>
     <main class="main-confirm-container">
         <section id="confirm-orders" class="orders">
