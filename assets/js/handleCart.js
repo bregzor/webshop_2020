@@ -56,7 +56,6 @@ function createProductElement(productData) {
 
   cartCount(cartItems);
   calculateTotalCartSum(cartItems);
-  //cartItems.push(item);
   animateAddProduct();
   removeButtonHover();
   animateAddToCart(productData.artNr);
@@ -135,7 +134,6 @@ function calculateTotalCartSum(arr) {
   arr.forEach(item => {
     totalSum = totalSum + parseInt(item.price) * parseInt(item.quantity);
   });
-  console.log(totalSum);
   document.querySelector("#checkOut").innerText = `CHECKOUT - $${totalSum}`;
 }
 

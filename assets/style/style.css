@@ -1115,9 +1115,18 @@ input {
   }
 }
 
-.footer-area__info h4, .footer-area__info p {
+.footer-area__info h4, .footer-area__info p, .footer-area__info a {
   font-family: 'Quicksand',sans-serif;
   width: 100%;
+}
+
+.footer-area__info a {
+  color: white;
+  text-decoration: none;
+}
+
+.footer-area__info a:hover {
+  font-weight: bold;
 }
 
 .footer-area__logo h1 {
