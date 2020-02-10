@@ -13,13 +13,14 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="./assets/style/style.css">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 </head>
 
 <body>
     <header class="page-header page-header--small">
-        <nav class="nav_bar">
+        <nav class="nav_bar nav_bar--no-trans">
             <ul class="nav_bar_navigation">
-                <li><a class="nav_bar_navigation_btn" href="#">HOME</a></li>
+                <li><a class="nav_bar_navigation_btn" href="index.html">HOME</a></li>
                 <li><a class="nav_bar_navigation_btn" href="#shop">SHOP</a></li>
                 <li><a class="nav_bar_navigation_btn" href="#foo">CONTACT</a></li>
             </ul>
@@ -38,26 +39,20 @@
             <div class="orders__wrapper">
                 <div id="confirmed-orders"></div>
                 <div class="orders__bottom">
-                    <div class="orders__bottom-sum">
-                        <span class="orders__bottom-sum-text">Total: Sum</span>
-                    </div>
-                    <div class="orders__bottom-pay">
-                        <span>Proceed to payment</span>
-                    </div>
+                        <p class="orders__bottom-sum-text">Total: Sum</p>
                     <span></span>
                 </div>
             </div>
         </section>
-
     </main>
-    <footer class="footer-area">
-        <div class="footer-area__info">
-            <h5>Made by Christopher Berge and David Öhman (FEND 19 Nackademin)</h5>
+    <footer id="foo" class="footer-area">
+        <div class="footer-area footer-area__info">
+            <h5>Made by Christopher Berge and David Öman (FEND 19 Nackademin)</h5>
             <p>For educational purposes only.</p>
         </div>
-        <div class="footer_area__logo">
+        <div class="footer-area footer-area__logo">
             <h1>FlyReelz</h1>
-        </div>
+        </div>  
     </footer>
     <div id="cart" class="cart-menu">
         <a href="javascript:void(0)" class="closebtn" onclick="closeCart()">&times;</a>

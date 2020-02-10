@@ -5,12 +5,17 @@
   height: 100vh;
   width: 100vw;
 
+  &--small {
+    height:80px;
+  }
+
   .nav_bar {
     display: flex;
     position: fixed;
     top: 0;
     width: 100vw;
     background: rgba(255, 255, 255, 0.9);
+    border-bottom: 1px solid gold;
     flex-direction: row;
     height: 80px;
     align-items: center;
@@ -23,6 +28,10 @@
       align-items: flex-end;
       justify-content: center;
     }
+
+    &--notrans {
+      background: white;
+    } 
 
     &_navigation {
       display: flex;
@@ -128,7 +137,7 @@
     background-repeat: no-repeat;
     background-position: right;
     background-size: cover;
-    min-height: 74vh;
+    min-height: 70vh;
     object-fit: cover;
 
     &-header {
@@ -143,6 +152,7 @@
       @media (max-width: 1200px) {
         left: 0;
         width: 80%;
+        top:35vh;
         text-align: center;
         font-size: 28px;
       }
@@ -154,10 +164,10 @@
     flex-direction: column;
     width: 60vw;
     align-self: center;
-    margin-top: 70px;
+    margin-top: 6vh;
 
     @media (max-width: 1000px) {
-      margin-top: 10%;
+     margin-top: 4vh;
       width: 90vw;
     }
     h3,

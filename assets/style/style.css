@@ -59,7 +59,8 @@ input {
 .main-confirm-container {
   width: 100vw;
   min-height: calc(100vh - 160px);
-  background: url("../media/hero.jpg");
+  background: url("../media/hero_trans.png");
+  background-blend-mode: lighten;
   background-size: cover;
 }
 
@@ -83,6 +84,7 @@ input {
   text-align: center;
   position: relative;
   top: -50px;
+  font-size: 32px;
   color: white;
   font-family: "Roboto Slab", sans-serif;
 }
@@ -101,14 +103,25 @@ input {
       align-self: center;
   background: white;
   border-radius: 10px;
-  -webkit-box-shadow: 0px 3px 11px 2px #8e8e8e;
-          box-shadow: 0px 3px 11px 2px #8e8e8e;
   max-width: 700px;
+  -webkit-transition: 250ms ease-in-out;
+  transition: 250ms ease-in-out;
+  border: 1px solid transparent;
+}
+
+.orders__wrapper:hover {
+  -webkit-transform: rotate3d(1, 1, 1, 1deg);
+          transform: rotate3d(1, 1, 1, 1deg);
+  -webkit-transition: 250ms ease-in-out;
+  transition: 250ms ease-in-out;
+  border: 1px solid rgba(212, 161, 30, 0.609);
+  cursor: pointer;
 }
 
 @media (max-width: 800px) {
   .orders__wrapper {
     width: 100vw;
+    border-radius: 0;
   }
 }
 
@@ -136,7 +149,10 @@ input {
 
 .orders__bottom-sum-text {
   font-weight: bold;
+  font-family: "Roboto Slab", sans-serif;
   font-size: 26px;
+  text-align: center;
+  width: 100%;
 }
 
 .orders__bottom-pay {
@@ -161,7 +177,7 @@ input {
   -ms-grid-column: 1;
   -ms-grid-column-span: 4;
   grid-column: 1/5;
-  border-bottom: 1px solid gray;
+  border-bottom: 1px solid rgba(228, 176, 80, 0.561);
 }
 
 .orders__item-image {
@@ -176,16 +192,36 @@ input {
   width: 110px;
 }
 
+@media (max-width: 760px) {
+  .orders__item-image img {
+    width: 70px;
+  }
+}
+
 .orders__item-info {
   -ms-flex-item-align: center;
       -ms-grid-row-align: center;
       align-self: center;
 }
 
+.orders__item-info p {
+  font-family: "Roboto Slab", sans-serif;
+  color: #727272;
+  font-size: 14px;
+}
+
 .orders__item-info-header {
   color: white;
   font-family: "Roboto Slab", sans-serif;
   color: #727272;
+  font-size: 26px;
+  font-weight: normal;
+}
+
+@media (max-width: 800px) {
+  .orders__item-info-header {
+    font-size: 16px;
+  }
 }
 
 .orders__item-right {
@@ -194,13 +230,23 @@ input {
       align-self: center;
   justify-self: flex-end;
   position: relative;
-  left: -40px;
+  left: -2vw;
 }
 
 .orders__item-right h4 {
   color: black;
   font-size: 32px;
   font-weight: bold;
+}
+
+@media (max-width: 800px) {
+  .orders__item-right h4 {
+    font-size: 22px;
+  }
+}
+
+.orders__item-right p {
+  font-family: "Roboto Slab", sans-serif;
 }
 
 .page-header {
@@ -216,6 +262,10 @@ input {
   width: 100vw;
 }
 
+.page-header--small {
+  height: 80px;
+}
+
 .page-header .nav_bar {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -224,6 +274,7 @@ input {
   top: 0;
   width: 100vw;
   background: rgba(255, 255, 255, 0.9);
+  border-bottom: 1px solid gold;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
@@ -250,6 +301,10 @@ input {
         -ms-flex-pack: center;
             justify-content: center;
   }
+}
+
+.page-header .nav_bar--notrans {
+  background: white;
 }
 
 .page-header .nav_bar_navigation {
@@ -398,7 +453,7 @@ input {
   background-repeat: no-repeat;
   background-position: right;
   background-size: cover;
-  min-height: 74vh;
+  min-height: 70vh;
   -o-object-fit: cover;
      object-fit: cover;
 }
@@ -418,6 +473,7 @@ input {
   .page-header__hero-header {
     left: 0;
     width: 80%;
+    top: 35vh;
     text-align: center;
     font-size: 28px;
   }
@@ -434,12 +490,12 @@ input {
   width: 60vw;
   -ms-flex-item-align: center;
       align-self: center;
-  margin-top: 70px;
+  margin-top: 6vh;
 }
 
 @media (max-width: 1000px) {
   .page-header__about {
-    margin-top: 10%;
+    margin-top: 4vh;
     width: 90vw;
   }
 }
@@ -857,6 +913,7 @@ input {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  margin-bottom: 7vh;
 }
 
 @media (max-width: 760px) {
@@ -971,6 +1028,12 @@ input {
   left: 45px;
 }
 
+@media (max-width: 600px) {
+  .product-section .products__item-info-bottom label {
+    left: 25px;
+  }
+}
+
 .product-section .products__item-info-bottom p {
   font-family: "Roboto Slab", sans-serif;
   color: #727272;
@@ -1046,7 +1109,7 @@ input {
 @media (max-width: 600px) {
   .footer-area__info {
     text-align: center;
-    width: 60vw;
+    width: 70vw;
     font-size: 14px;
     left: 0;
   }
@@ -1054,6 +1117,7 @@ input {
 
 .footer-area__info h4, .footer-area__info p {
   font-family: 'Quicksand',sans-serif;
+  width: 100%;
 }
 
 .footer-area__logo h1 {

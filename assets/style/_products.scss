@@ -28,7 +28,7 @@
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-
+    margin-bottom: 7vh;
     @media(max-width:760px) {
         width: 100%;
     }
@@ -64,6 +64,8 @@
             align-self: center;
             padding-top: 40px;
             padding-bottom: 60px;
+
+            
         }
 
         &-info {
@@ -111,6 +113,9 @@
                 color:black;
                 position: relative;
                 left: 45px;
+                @media(max-width:600px) {
+                        left:25px;
+                }
             }
             p {
                 font-family: $product-font;

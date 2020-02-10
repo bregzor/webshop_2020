@@ -48,11 +48,3 @@ let addCount = 1;
     })
     .catch(err => console.log("Error in Fetch: " + err));
 })();
-
-//Making top menu sticky for desktop/mobile
-$(document).scroll(function(){
-      const topMenu = $('.page-header__top ');
-      const scroll = $(document).scrollTop();
-      if (scroll >= 80) topMenu.addClass('fixed');
-      else topMenu.removeClass('fixed'); 
-});
